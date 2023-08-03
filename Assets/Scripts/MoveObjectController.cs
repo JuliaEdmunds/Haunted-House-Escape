@@ -86,7 +86,7 @@ public class MoveObjectController : MonoBehaviour
 				if (moveableObject != null)		//hit object must have MoveableDraw script attached
 				{
 					showInteractMsg = true;
-					string animBoolNameNum = ANIM_BOOL_NAME + moveableObject.objectNumber.ToString();
+					string animBoolNameNum = ANIM_BOOL_NAME + moveableObject.ObjectNumber.ToString();
 
 					bool isOpen = anim.GetBool(animBoolNameNum);	//need current state for message.
 					msg = getGuiMsg(isOpen);

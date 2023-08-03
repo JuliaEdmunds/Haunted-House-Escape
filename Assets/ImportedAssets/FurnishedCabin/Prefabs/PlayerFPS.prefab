@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2271036430416539210}
   - component: {fileID: 2271036430416539211}
-  - component: {fileID: 2271036430416539204}
   - component: {fileID: 5521930235035802447}
   m_Layer: 0
   m_Name: PlayerFPS
@@ -61,19 +60,6 @@ CharacterController:
   m_SkinWidth: 0.1
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2271036430416539204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2271036430416539205}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8decf0f1ddf210d45b3a28656cf18716, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 2
 --- !u!114 &5521930235035802447
 MonoBehaviour:
   m_ObjectHideFlags: 0

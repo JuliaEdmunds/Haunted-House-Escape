@@ -28,7 +28,7 @@ public class MoveObjectController : MonoBehaviour
 		fpsCam = Camera.main;
 		if (fpsCam == null)	//a reference to Camera is required for rayasts
 		{
-			Debug.LogError("A camera tagged 'MainCamera' is missing.");
+			throw new UnityException("A Camera tagged 'MainCamera' is missing.");
 		}
 
 		//create AnimatorOverrideController to re-use animationController for sliding draws.
@@ -159,16 +159,7 @@ public class MoveObjectController : MonoBehaviour
 
 	private string getGuiMsg(bool isOpen)
 	{
-		string rtnVal;
-		if (isOpen)
-		{
-			rtnVal = "Press E/Fire1 to Close";
-		}else
-		{
-			rtnVal = "Press E/Fire1 to Open";
-		}
-
-		return rtnVal;
+        return isOpen ? "Press E/Fire1 to Close" : "Press E/Fire1 to Open";
 	}
 
 	void OnGUI()

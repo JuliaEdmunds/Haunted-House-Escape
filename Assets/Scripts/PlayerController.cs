@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMove : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private const string HORIZONTAL_INPUT_NAME = "Horizontal";
     private const string VERTICAL_INPUT_NAME = "Vertical";
 
-    [SerializeField] private float movementSpeed = 2f;
+    [SerializeField, Range(2f, 4f)] private float movementSpeed;
 
     private CharacterController charController;
 

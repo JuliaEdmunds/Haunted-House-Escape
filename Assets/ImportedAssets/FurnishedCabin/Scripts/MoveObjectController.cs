@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Unity.Burst.CompilerServices;
 
 public class MoveObjectController : MonoBehaviour 
 {
@@ -9,7 +10,7 @@ public class MoveObjectController : MonoBehaviour
 	private Camera fpsCam;
 	private GameObject player;
 
-	private const string animBoolName = "isOpen_Obj_";
+	private const string ANIM_BOOL_NAME = "isOpen_Obj_";
 
 	private bool playerEntered;
 	private bool showInteractMsg;
@@ -65,10 +66,9 @@ public class MoveObjectController : MonoBehaviour
 
 
 	void Update()
-	{		
-		if (playerEntered)
+	{
+        if (playerEntered)
 		{	
-
 			//center point of viewport in World space.
 			Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f,0.5f,0f));
 			RaycastHit hit;
@@ -78,7 +78,7 @@ public class MoveObjectController : MonoBehaviour
 			{
 				MoveableObject moveableObject = null;
 				//is the object of the collider player is looking at the same as me?
-				if (!isEqualToParent(hit.collider, out moveableObject))
+				if (!IsEqualToParent(hit.collider, out moveableObject))
 				{	//it's not so return;
 					return;
 				}
@@ -86,7 +86,7 @@ public class MoveObjectController : MonoBehaviour
 				if (moveableObject != null)		//hit object must have MoveableDraw script attached
 				{
 					showInteractMsg = true;
-					string animBoolNameNum = animBoolName + moveableObject.objectNumber.ToString();
+					string animBoolNameNum = ANIM_BOOL_NAME + moveableObject.objectNumber.ToString();
 
 					bool isOpen = anim.GetBool(animBoolNameNum);	//need current state for message.
 					msg = getGuiMsg(isOpen);
@@ -109,7 +109,7 @@ public class MoveObjectController : MonoBehaviour
 	}
 
 	//is current gameObject equal to the gameObject of other.  check its parents
-	private bool isEqualToParent(Collider other, out MoveableObject draw)
+	private bool IsEqualToParent(Collider other, out MoveableObject draw)
 	{
 		draw = null;
 		bool rtnVal = false;

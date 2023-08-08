@@ -16,6 +16,7 @@ public class CursorController : MonoBehaviour
     {
         LockCursor();
         xAxisClamp = 0.0f;
+        transform.localEulerAngles = Vector3.zero;
     }
 
     private void LockCursor()
@@ -44,10 +45,12 @@ public class CursorController : MonoBehaviour
         float mouseX = GetMouseInput(MOUSE_X_INPUT_NAME);
         float mouseY = GetMouseInput(MOUSE_Y_INPUT_NAME);
 
-        xAxisClamp += mouseY;
+        xAxisClamp -= mouseY;
+
+        // allow the player to look up to 90 degrees but not look downward beyond the horizontal plane
         xAxisClamp = Mathf.Clamp(xAxisClamp, -MAX_X_AXIS_ANGLE, MAX_X_AXIS_ANGLE);
 
-        transform.Rotate(Vector3.left * mouseY);
+        transform.rotation = Quaternion.Euler(xAxisClamp, transform.eulerAngles.y, 0.0f);
         playerBody.Rotate(Vector3.up * mouseX);
     }
 

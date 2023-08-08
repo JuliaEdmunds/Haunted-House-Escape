@@ -3,6 +3,8 @@ using System;
 
 public class MoveObjectController : MonoBehaviour 
 {
+    private const string ANIM_BOOL_NAME = "isOpen_Obj_";
+
     public event Action OnPlayerEnter;
 	public event Action OnPlayerExit;
 
@@ -12,12 +14,7 @@ public class MoveObjectController : MonoBehaviour
 	private Camera m_FpsCam;
 	private GameObject m_Player;
 
-	private const string ANIM_BOOL_NAME = "isOpen_Obj_";
-
 	private bool m_PlayerEntered;
-	// private bool m_ShowInteractMsg;
-	// private GUIStyle guiStyle;
-	// private string msg;
 
 	private int m_RayLayerMask;
 
@@ -106,19 +103,25 @@ public class MoveObjectController : MonoBehaviour
         if (moveableObject == null) //hit object must have MoveableDraw script attached
             return;
 
-        //guiController.ShowInteractMsg(showInteractMsg, isOpen);
         m_GuiController.ShouldShowtMsg = true;
         string animBoolNameNum = ANIM_BOOL_NAME + moveableObject.ObjectNumber.ToString();
         bool isOpen = m_Animator.GetBool(animBoolNameNum); //need current state for message.
 
-        m_GuiController.ShowInteractMsg(isOpen);
-
-        if (Input.GetKeyUp(KeyCode.E) || Input.GetButtonDown("Fire1"))
+        if (moveableObject.Locked)
         {
-            m_Animator.enabled = true;
-            m_Animator.SetBool(animBoolNameNum, !isOpen);
-            m_GuiController.ShowInteractMsg(!isOpen);
+            m_GuiController.ShowInteractMsg("It's locked. You need to find a way to unlock it first.");
         }
+        else
+        {
+            m_GuiController.ShowInteractMsg(isOpen);
+
+            if (Input.GetKeyUp(KeyCode.E) || Input.GetButtonDown("Fire1"))
+            {
+                m_Animator.enabled = true;
+                m_Animator.SetBool(animBoolNameNum, !isOpen);
+                m_GuiController.ShowInteractMsg(!isOpen);
+            }
+        }        
     }
 
     //is current gameObject equal to the gameObject of other.  check its parents

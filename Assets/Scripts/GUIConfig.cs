@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 public class GUIConfig
 {
     public bool ShouldShowtMsg;
@@ -28,6 +27,11 @@ public class GUIConfig
     public void ShowInteractMsg(bool isOpen)
     {
         m_Msg = GetGuiMsg(isOpen);
+    }
+
+    public void ShowInteractMsg(string msg)
+    {
+        m_Msg = msg;
     }
 
     public void OnGUI()

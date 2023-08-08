@@ -73,7 +73,6 @@ public class MoveObjectController : MonoBehaviour
         if (other.gameObject == m_Player)       //player has collided with trigger
         {
             m_PlayerEntered = true;
-            OnPlayerEnter?.Invoke();
         }
     }
 
@@ -85,8 +84,6 @@ public class MoveObjectController : MonoBehaviour
 
             //hide interact message as player may not have been looking at object when they left
             m_GuiController.ShouldShowtMsg = false;
-
-            OnPlayerExit?.Invoke();
         }
     }
 

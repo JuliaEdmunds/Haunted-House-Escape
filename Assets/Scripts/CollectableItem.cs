@@ -2,18 +2,10 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class CollectableItem : MonoBehaviour
+public class CollectableItem : AInteractableObject
 {
-    public bool IsCollected { get; private set; }
+    [SerializeField] private ECollectable m_ItemType;
 
-    public event Action<CollectableItem> OnItemCollected;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player") && !IsCollected)
-        {
-            OnItemCollected?.Invoke(this);
-            IsCollected = true;
-        }
-    }
+    // TODO: Lots of repetitive code with MoveObjectController.  Refactor to a base class.
+       
 }

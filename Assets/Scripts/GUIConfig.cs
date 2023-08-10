@@ -2,7 +2,7 @@
 
 public class GUIConfig
 {
-    public bool ShouldShowtMsg;
+    public bool ShouldShowMsg;
 
     private GUIStyle m_GuiStyle;
     private string m_Msg;
@@ -36,7 +36,7 @@ public class GUIConfig
 
     public void OnGUI()
     {
-        if (ShouldShowtMsg) // show on-screen prompts to user for guide.
+        if (ShouldShowMsg) // show on-screen prompts to user for guide.
         {
             GUI.Label(new Rect(50, Screen.height - 50, 200, 50), m_Msg, m_GuiStyle);
         }

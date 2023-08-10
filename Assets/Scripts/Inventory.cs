@@ -9,10 +9,7 @@ public class Inventory : MonoBehaviour
     // TODO: Implement the inventory UI
     void Start()
     {
-        foreach (var item in m_CollectableItemsDictionary.Keys)
-        {
-            item.OnItemCollected += OnItemCollected;
-        }
+        
     }
 
     private void OnItemCollected(CollectableItem item)

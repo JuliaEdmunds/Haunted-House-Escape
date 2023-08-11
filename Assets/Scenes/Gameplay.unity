@@ -643,6 +643,10 @@ PrefabInstance:
       propertyPath: Locked
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000014155093602, guid: 23d25b2e2d4364dd4b92c52ef40cd36e, type: 3}
+      propertyPath: m_IsLocked
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1179,6 +1183,7 @@ GameObject:
   - component: {fileID: 1678928960}
   - component: {fileID: 1678928959}
   - component: {fileID: 1678928958}
+  - component: {fileID: 1678928963}
   m_Layer: 8
   m_Name: Key
   m_TagString: Untagged
@@ -1198,7 +1203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed1003a91bcea845b44604cfa1d50f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ItemType: 0
+  m_ItemType: 1
+  m_IsLocked: 1
 --- !u!65 &1678928959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1218,8 +1224,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8380396, y: 1.3775971, z: 1.5536218}
-  m_Center: {x: 0.061231017, y: 0.18879855, z: -0.27681088}
+  m_Size: {x: 1.9230819, y: 0.5222726, z: 2.4599872}
+  m_Center: {x: 0.018709898, y: 0.6164608, z: -0.7299936}
 --- !u!23 &1678928960
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1285,6 +1291,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1678928963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678928957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7549c75fef3879646957eb6c7f97557c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reachRange: 1.8
 --- !u!850595691 &1682494714
 LightingSettings:
   m_ObjectHideFlags: 0

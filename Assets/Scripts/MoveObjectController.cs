@@ -18,7 +18,7 @@ public class MoveObjectController : AInteractableObjectController<MoveableObject
         m_Animator.enabled = false;  //disable animation states by default.  
     }
 
-    void OnGUI()
+    private void OnGUI()
     {
         m_GuiController.OnGUI();
     }
@@ -41,6 +41,11 @@ public class MoveObjectController : AInteractableObjectController<MoveableObject
 
     protected override void OnInteractedWithTarget(MoveableObject target)
     {
+        if (target.Locked)
+        {
+            return;
+        }
+
         m_GuiController.ShouldShowMsg = true;
         string animBoolNameNum = ANIM_BOOL_NAME + target.ObjectNumber.ToString();
         bool isOpen = m_Animator.GetBool(animBoolNameNum); //need current state for message.

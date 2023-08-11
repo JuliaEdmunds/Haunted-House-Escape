@@ -5,5 +5,6 @@ public class MoveableObject : AInteractableObject
     [SerializeField] private int m_ObjectNumber;
     public int ObjectNumber => m_ObjectNumber;
 
-    public bool Locked;
+    [SerializeField] private bool m_IsLocked;
+    public bool Locked => m_IsLocked;
 }

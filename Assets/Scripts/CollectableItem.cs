@@ -5,7 +5,8 @@ using UnityEngine;
 public class CollectableItem : AInteractableObject
 {
     [SerializeField] private ECollectable m_ItemType;
+    public ECollectable ItemType => m_ItemType;
 
-    // TODO: Lots of repetitive code with MoveObjectController.  Refactor to a base class.
-       
+    [SerializeField] private bool m_IsLocked;
+    public bool Locked => m_IsLocked;
 }

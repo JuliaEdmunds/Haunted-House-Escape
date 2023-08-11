@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-
+﻿using System;
+using System.Collections.Generic;
 
 public static class FactDB
 {
@@ -14,7 +14,7 @@ public static class FactDB
         else
         {
             return false;
-        }       
+        }
     }
 
     public static int GetIntFact(string key)
@@ -29,22 +29,24 @@ public static class FactDB
         }
     }
 
-    public static void SetBoolFact(string key, bool isFullfilled)
+    public static void SetBoolFact(string key, bool isFulfilled)
     {
-        m_Facts[key] = isFullfilled ? 1 : 0;
+        m_Facts[key] = isFulfilled ? 1 : 0;
     }
 
     public static void SetIntFact(string key, EOperation operationType, int value)
     {
+        m_Facts.TryGetValue(key, out int currentValue);
+
         switch (operationType)
         {
-            default:
             case EOperation.Add:
-                m_Facts[key] += value;
+                m_Facts[key] = currentValue + value;
                 break;
             case EOperation.Subtract:
-                m_Facts[key] -= value;
+                m_Facts[key] = (int)MathF.Max(currentValue - value, 0);
                 break;
+            default:
             case EOperation.Set:
                 m_Facts[key] = value;
                 break;

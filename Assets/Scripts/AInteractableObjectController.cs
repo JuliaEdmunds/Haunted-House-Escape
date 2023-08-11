@@ -48,7 +48,7 @@ public abstract class AInteractableObjectController<TInteractableObject> : MonoB
             //if raycast hits a collider on the rayLayerMask
             if (!Physics.Raycast(rayOrigin, m_FpsCam.transform.forward, out RaycastHit hit, reachRange, m_RayLayerMask))
             {
-                //m_GuiController.ShouldShowMsg = false;
+                m_GuiController.ShouldShowMsg = false;
                 return;
             }
 
@@ -64,9 +64,6 @@ public abstract class AInteractableObjectController<TInteractableObject> : MonoB
 
         if (targetObject == null) //hit object must inherit from AIteractableObject
             return;
-
-        // TODO: Move GUI controller to specific objects
-        // m_GuiController.ShouldShowMsg = true;
 
         OnLookingAtTarget(targetObject);
         OnLookedAt?.Invoke(targetObject);
@@ -125,7 +122,7 @@ public abstract class AInteractableObjectController<TInteractableObject> : MonoB
             m_PlayerEntered = false;
 
             //hide interact message as player may not have been looking at object when they left
-            // m_GuiController.ShouldShowMsg = false;
+            m_GuiController.ShouldShowMsg = false;
         }
     }
 }

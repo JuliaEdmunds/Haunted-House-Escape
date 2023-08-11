@@ -14,7 +14,6 @@ public class MoveObjectController : AInteractableObjectController<MoveableObject
     {
         base.Start();
 
-        //create AnimatorOverrideController to re-use animationController for sliding draws.
         m_Animator = GetComponent<Animator>();
         m_Animator.enabled = false;  //disable animation states by default.  
     }

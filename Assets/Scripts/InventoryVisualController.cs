@@ -2,7 +2,7 @@
 
 public class InventoryVisualController : MonoBehaviour
 {
-    [SerializeField] private Inventory m_InventoryUI;
+    [SerializeField] private InventoryUI m_InventoryUI;
 
     private void Start()
     {

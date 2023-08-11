@@ -107,7 +107,7 @@ public abstract class AInteractableObjectController<TInteractableObject> : MonoB
 
     protected abstract void OnInteractedWithTarget(TInteractableObject target);
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == m_Player)       //player has collided with trigger
         {
@@ -115,7 +115,7 @@ public abstract class AInteractableObjectController<TInteractableObject> : MonoB
         }
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == m_Player)       //player has exited trigger
         {

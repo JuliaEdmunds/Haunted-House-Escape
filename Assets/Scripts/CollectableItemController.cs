@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class CollectableItemController : AInteractableObjectController<CollectableItem>
 {
-    // TODO: Implement this class
+    public event Action<CollectableItem> OnItemCollected;
 
     private void OnGUI()
     {
@@ -36,7 +36,9 @@ public class CollectableItemController : AInteractableObjectController<Collectab
             return;
         }
 
-        // TODO: Implement picking up item, moving to invenotry and updating the FactsDB
-
+        // TODO: Implement picking up item, showing it in the inventory and updating the FactsDB
+        FactDB.SetIntFact(target.ItemType.ToString(), EOperation.Add, 1);
+        OnItemCollected?.Invoke(target);
+        target.gameObject.SetActive(false);
     }
 }

@@ -37,5 +37,6 @@ public class CollectableItemController : AInteractableObjectController<Collectab
         }
 
         // TODO: Implement picking up item, moving to invenotry and updating the FactsDB
+
     }
 }

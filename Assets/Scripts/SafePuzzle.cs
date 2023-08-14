@@ -1,28 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
 
 
 public class SafePuzzle : MonoBehaviour
 {
-    private string m_CorrectCode = "739";
+    private const string SAFE_PUZZLE_CODE_KEY = "SafePuzzleCode";
+    private const string SAFE_PUZZLE_SOLVED_KEY = "SafePuzzleSolved";
+
     [SerializeField] private TextMeshProUGUI m_UserInput;
+    [SerializeField] private AudioSource m_AudioSource;
+    [SerializeField] private AudioClip m_ErrorSound;
+    [SerializeField] private AudioClip m_SuccessSound;
+
+    // TODO: Randomly generate the password
+    // TODO: Move the puzzle fact into a specific puzzle manager class
+    private void Start()
+    {
+        FactDB.SetIntFact(SAFE_PUZZLE_CODE_KEY, EOperation.Set, 739);
+    }
 
     public void CheckCode()
     {
-        if (m_UserInput.text == m_CorrectCode)
+        int.TryParse(m_UserInput.text, out int number);
+
+        if (number == FactDB.GetIntFact(SAFE_PUZZLE_CODE_KEY))
         {
             UnlockSafe();
         }
         else
         {
+            m_AudioSource.PlayOneShot(m_ErrorSound);
             ResetCode();
         }
     }
@@ -39,7 +46,9 @@ public class SafePuzzle : MonoBehaviour
 
     private void UnlockSafe()
     {
-        // Code to unlock the safe, maybe play an animation, sound effect, etc.
+        //TODO: play an animation of the safe opening and reveal the key
+        m_AudioSource.PlayOneShot(m_SuccessSound);
+        FactDB.SetBoolFact(SAFE_PUZZLE_SOLVED_KEY, true);
     }
 
     public void ResetCode()

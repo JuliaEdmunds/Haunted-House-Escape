@@ -60,10 +60,14 @@ public abstract class AInteractableObjectController<TInteractableObject> : MonoB
     {
         //is the object of the collider player is looking at the same as me?
         if (!IsEqualToParent(hit.collider, out TInteractableObject targetObject))
+        {
             return;
+        }
 
         if (targetObject == null) //hit object must inherit from AIteractableObject
+        {
             return;
+        }
 
         OnLookingAtTarget(targetObject);
         OnLookedAt?.Invoke(targetObject);

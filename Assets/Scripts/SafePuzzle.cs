@@ -7,7 +7,14 @@ public class SafePuzzle : MonoBehaviour
     private const string SAFE_PUZZLE_CODE_KEY = "SafePuzzleCode";
     private const string SAFE_PUZZLE_SOLVED_KEY = "SafePuzzleSolved";
 
+    [Header("Puzzle Elements")]
+    [SerializeField] private MoveableObject m_SafeDoor;
+    [SerializeField] private TextMeshProUGUI m_1stDigit;
+    [SerializeField] private TextMeshProUGUI m_2ndDigit;
+    [SerializeField] private TextMeshProUGUI m_3rdDigit;
     [SerializeField] private TextMeshProUGUI m_UserInput;
+
+    [Header("Audio")]
     [SerializeField] private AudioSource m_AudioSource;
     [SerializeField] private AudioClip m_ClickySound;
     [SerializeField] private AudioClip m_ErrorSound;
@@ -53,6 +60,7 @@ public class SafePuzzle : MonoBehaviour
     private void UnlockSafe()
     {
         //TODO: play an animation of the safe opening and reveal the key
+        m_SafeDoor.Unlock();
         m_AudioSource.PlayOneShot(m_SuccessSound);
         FactDB.SetBoolFact(SAFE_PUZZLE_SOLVED_KEY, true);
     }

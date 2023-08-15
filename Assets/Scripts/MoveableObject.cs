@@ -48,6 +48,11 @@ public class MoveableObject : AInteractableObject
         }
     }
 
+    public void Unlock()
+    {
+        m_IsLocked = false;
+    }
+
     protected override void Reset()
     {
         base.Reset();

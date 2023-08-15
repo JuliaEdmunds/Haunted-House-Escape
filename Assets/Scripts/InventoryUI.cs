@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -8,11 +6,7 @@ public class InventoryUI : MonoBehaviour
 
     private void Awake()
     {
-        foreach (CollectableItem item in m_CollectableItemsDictionary.Keys)
-        {
-            CollectableItemController collectableItemController = item.GetComponent<CollectableItemController>();
-            collectableItemController.OnItemCollected += OnItemCollected;
-        }
+        CollectableItem.OnItemCollected += OnItemCollected;
     }
 
     // TODO: Implement the inventory UI

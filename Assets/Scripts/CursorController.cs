@@ -9,13 +9,14 @@ public class CursorController : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 300f;
     [SerializeField] private Transform playerBody;
 
-    private float xAxisClamp;
-    private bool m_cursorIsLocked = true;
+    private float m_XAxisClamp;
+    private bool m_CursorIsLocked = true;
+    private bool m_IgnoreNextMouseMovement = false;
 
     private void Awake()
     {
         LockCursor();
-        xAxisClamp = 0.0f;
+        m_XAxisClamp = 0.0f;
         transform.localEulerAngles = Vector3.zero;
     }
 
@@ -26,13 +27,13 @@ public class CursorController : MonoBehaviour
             ToggleCursorLock();
         }
 
-        Cursor.lockState = m_cursorIsLocked ? CursorLockMode.Locked : CursorLockMode.None;
-        Cursor.visible = !m_cursorIsLocked;
+        Cursor.lockState = m_CursorIsLocked ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !m_CursorIsLocked;
     }
 
     private void ToggleCursorLock()
     {
-        m_cursorIsLocked = !m_cursorIsLocked;
+        m_CursorIsLocked = !m_CursorIsLocked;
     }
 
     private void Update()
@@ -45,12 +46,12 @@ public class CursorController : MonoBehaviour
         float mouseX = GetMouseInput(MOUSE_X_INPUT_NAME);
         float mouseY = GetMouseInput(MOUSE_Y_INPUT_NAME);
 
-        xAxisClamp -= mouseY;
+        m_XAxisClamp -= mouseY;
 
         // allow the player to look up to 90 degrees but not look downward beyond the horizontal plane
-        xAxisClamp = Mathf.Clamp(xAxisClamp, -MAX_X_AXIS_ANGLE, MAX_X_AXIS_ANGLE);
+        m_XAxisClamp = Mathf.Clamp(m_XAxisClamp, -MAX_X_AXIS_ANGLE, MAX_X_AXIS_ANGLE);
 
-        transform.rotation = Quaternion.Euler(xAxisClamp, transform.eulerAngles.y, 0.0f);
+        transform.rotation = Quaternion.Euler(m_XAxisClamp, transform.eulerAngles.y, 0.0f);
         playerBody.Rotate(Vector3.up * mouseX);
     }
 

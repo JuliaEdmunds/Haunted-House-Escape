@@ -8,11 +8,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField, Range(2f, 4f)] private float movementSpeed;
 
-    private CharacterController charController;
+    private CharacterController m_CharController;
+    private bool m_IgnoreNextMouseMovement = false;
 
     private void Awake()
     {
-        charController = GetComponent<CharacterController>();
+        m_CharController = GetComponent<CharacterController>();
     }
 
     private void FixedUpdate()
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = (transform.forward * vertInput) + (transform.right * horizInput);
 
-        charController.SimpleMove(movement);
+        m_CharController.SimpleMove(movement);
     }
 }
 

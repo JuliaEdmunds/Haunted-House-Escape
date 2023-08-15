@@ -9,6 +9,7 @@ public class SafePuzzle : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI m_UserInput;
     [SerializeField] private AudioSource m_AudioSource;
+    [SerializeField] private AudioClip m_ClickySound;
     [SerializeField] private AudioClip m_ErrorSound;
     [SerializeField] private AudioClip m_SuccessSound;
 
@@ -42,6 +43,11 @@ public class SafePuzzle : MonoBehaviour
         }
 
         m_UserInput.text += num;
+    }
+
+    public void PlayClicky()
+    {
+        m_AudioSource.PlayOneShot(m_ClickySound);
     }
 
     private void UnlockSafe()

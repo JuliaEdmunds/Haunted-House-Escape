@@ -9,9 +9,6 @@ public class SafePuzzle : MonoBehaviour
 
     [Header("Puzzle Elements")]
     [SerializeField] private MoveableObject m_SafeDoor;
-    [SerializeField] private TextMeshProUGUI m_1stDigit;
-    [SerializeField] private TextMeshProUGUI m_2ndDigit;
-    [SerializeField] private TextMeshProUGUI m_3rdDigit;
     [SerializeField] private TextMeshProUGUI m_UserInput;
 
     [Header("Audio")]
@@ -22,10 +19,6 @@ public class SafePuzzle : MonoBehaviour
 
     // TODO: Randomly generate the password
     // TODO: Move the puzzle fact into a specific puzzle manager class
-    private void Start()
-    {
-        FactDB.SetIntFact(SAFE_PUZZLE_CODE_KEY, EOperation.Set, 739);
-    }
 
     public void CheckCode()
     {

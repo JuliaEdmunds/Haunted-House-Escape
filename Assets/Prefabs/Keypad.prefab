@@ -3666,7 +3666,7 @@ RectTransform:
   m_GameObject: {fileID: 8294523358642589209}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0010000003, y: 0.00057708984, z: 0.0010000003}
+  m_LocalScale: {x: 0.0010000003, y: 0.001, z: 0.0010000003}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7817974539877224108}
@@ -3764,6 +3764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ba96ee461d9b045a45b375cdce5a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SafeDoor: {fileID: 0}
   m_UserInput: {fileID: 8752291639833834125}
   m_AudioSource: {fileID: 5273599199113846170}
   m_ClickySound: {fileID: 8300000, guid: 7f9c87925441e43bdbb6399f1c1793a6, type: 3}

@@ -10,6 +10,7 @@ public class SafePuzzle : MonoBehaviour
     [Header("Puzzle Elements")]
     [SerializeField] private MoveableObject m_SafeDoor;
     [SerializeField] private TextMeshProUGUI m_UserInput;
+    [SerializeField] private CollectableItem m_Key;
 
     [Header("Audio")]
     [SerializeField] private AudioSource m_AudioSource;
@@ -56,6 +57,7 @@ public class SafePuzzle : MonoBehaviour
         m_SafeDoor.Unlock();
         m_AudioSource.PlayOneShot(m_SuccessSound);
         FactDB.SetBoolFact(SAFE_PUZZLE_SOLVED_KEY, true);
+        m_Key.gameObject.SetActive(true);
     }
 
     public void ResetCode()

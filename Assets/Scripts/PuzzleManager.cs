@@ -9,15 +9,20 @@ public class PuzzleManager : MonoBehaviour
     private const string SAFE_PUZZLE_CODE_KEY = "SafePuzzleCode";
 
     [Header("Safe Puzzle Elements")]
-    [SerializeField] private List<GameObject> m_PossiblePositions;
+    [SerializeField] private List<GameObject> m_PosterPossiblePositions;
     [SerializeField] private GameObject m_HiddenPoster;
     [SerializeField] private TextMeshProUGUI m_1stDigit;
     [SerializeField] private TextMeshProUGUI m_2ndDigit;
     [SerializeField] private TextMeshProUGUI m_3rdDigit;
 
+    [Header("Puzzle Pieces Elements")]
+    [SerializeField] private List<GameObject> m_PuzzlePossiblePositions;
+    [SerializeField] private List<CollectableItem> m_Puzzles;
+
     private void Awake()
     {
         SetSafePuzzle();
+        SetPuzzlePieces();
     }
 
     private void SetSafePuzzle()
@@ -55,16 +60,31 @@ public class PuzzleManager : MonoBehaviour
         FactDB.SetIntFact(SAFE_PUZZLE_CODE_KEY, EOperation.Set, passcodeInt);
 
         // Makes the GameObject posterParent the parent of the GameObject poster
-        GameObject posterParent = GetRandomPos();
+        GameObject posterParent = GetRandomPos(m_PosterPossiblePositions);
         m_HiddenPoster.transform.parent = posterParent.transform;
         m_HiddenPoster.transform.localPosition = Vector3.zero;
     }
 
-
-    private GameObject GetRandomPos()
+    private void SetPuzzlePieces()
     {
-        int randomIndex = Random.Range(0, m_PossiblePositions.Count);
-        return m_PossiblePositions[randomIndex];
+        // Makes the GameObject posterParent the parent of the GameObject poster
+        for (int i = 0; i < m_Puzzles.Count; i++)
+        {
+            GameObject puzzleParent = GetRandomPos(m_PuzzlePossiblePositions);
+
+            CollectableItem currentPuzzle = m_Puzzles[i];
+            currentPuzzle.transform.parent = puzzleParent.transform;
+            currentPuzzle.transform.localPosition = Vector3.zero;
+        }
     }
+
+
+    private GameObject GetRandomPos(List<GameObject> possiblePositions)
+    {
+        int randomIndex = Random.Range(0, possiblePositions.Count);
+        possiblePositions.RemoveAt(randomIndex);
+        return possiblePositions[randomIndex];
+    }
+
 }
 

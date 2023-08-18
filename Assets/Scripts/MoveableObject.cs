@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class MoveableObject : AInteractableObject
 {
@@ -14,7 +15,7 @@ public class MoveableObject : AInteractableObject
     public bool Locked => m_IsLocked;
 
     [SerializeField] private string m_UnlockKey;
-    [SerializeField] private CollectableItem m_ItemToUnlock;
+    [SerializeField] private List<CollectableItem> m_ItemsToUnlock;
 
     private void Start()
     {
@@ -63,7 +64,14 @@ public class MoveableObject : AInteractableObject
             if (Locked && FactDB.GetBoolFact(m_UnlockKey))
             {
                 Unlock();
-                m_ItemToUnlock.UseItem();
+                if (m_ItemsToUnlock.Count != 0)
+                {
+                    for (int i = 0; i < m_ItemsToUnlock.Count; i++)
+                    {
+                        CollectableItem itemToUnlock = m_ItemsToUnlock[i];
+                        itemToUnlock.UseItem();
+                    }
+                }
             }
         }
     }

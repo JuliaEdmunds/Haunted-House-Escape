@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class InventoryUI : MonoBehaviour
     private void Awake()
     {
         CollectableItem.OnItemCollected += OnItemCollected;
+        CollectableItem.OnItemUsed += OnItemUsed;
     }
 
     // TODO: Implement the inventory UI
@@ -15,6 +17,12 @@ public class InventoryUI : MonoBehaviour
     {
         InventorySlotUI slot = m_CollectableItemsDictionary[item];
         slot.CollectedItem();
+    }
+
+    private void OnItemUsed(CollectableItem item)
+    {
+        InventorySlotUI slot = m_CollectableItemsDictionary[item];
+        slot.UseItem();
     }
 }
 

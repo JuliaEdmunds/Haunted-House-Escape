@@ -7,4 +7,9 @@ public class InventorySlotUI : MonoBehaviour
     {
         gameObject.SetActive(true);
     }
+
+    public void UseItem()
+    {
+        gameObject.SetActive(false);
+    }
 }

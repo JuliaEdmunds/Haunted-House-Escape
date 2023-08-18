@@ -1,6 +1,7 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class SafePuzzle : MonoBehaviour
 {
@@ -11,15 +12,18 @@ public class SafePuzzle : MonoBehaviour
     [SerializeField] private MoveableObject m_SafeDoor;
     [SerializeField] private TextMeshProUGUI m_UserInput;
     [SerializeField] private CollectableItem m_Key;
-
+    [SerializeField] private GameObject m_SpotLight;
+        
     [Header("Audio")]
     [SerializeField] private AudioSource m_AudioSource;
     [SerializeField] private AudioClip m_ClickySound;
     [SerializeField] private AudioClip m_ErrorSound;
     [SerializeField] private AudioClip m_SuccessSound;
 
-    // TODO: Randomly generate the password
-    // TODO: Move the puzzle fact into a specific puzzle manager class
+    private void Awake()
+    {
+        CollectableItem.OnItemCollected += OnItemCollected;
+    }
 
     public void CheckCode()
     {
@@ -58,6 +62,23 @@ public class SafePuzzle : MonoBehaviour
         m_AudioSource.PlayOneShot(m_SuccessSound);
         FactDB.SetBoolFact(SAFE_PUZZLE_SOLVED_KEY, true);
         m_Key.gameObject.SetActive(true);
+    }
+
+    private void OnItemCollected(CollectableItem item)
+    {
+        if (item == m_Key)
+        {
+            m_SpotLight.SetActive(false);
+
+            // Disable ClickOverlayButton in children
+            foreach (Transform child in transform)
+            {
+                if (child.TryGetComponent<ClickOverlayButton>(out ClickOverlayButton component))
+                {
+                    component.IsEnabled = false;
+                }
+            }
+        }
     }
 
     public void ResetCode()

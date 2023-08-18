@@ -13,6 +13,9 @@ public class MoveableObject : AInteractableObject
     [SerializeField] private bool m_IsLocked;
     public bool Locked => m_IsLocked;
 
+    [SerializeField] private string m_UnlockKey;
+    [SerializeField] private CollectableItem m_ItemToUnlock;
+
     private void Start()
     {
         m_Animator.enabled = false;  // Disable animation states by default.  
@@ -51,6 +54,18 @@ public class MoveableObject : AInteractableObject
     public void Unlock()
     {
         m_IsLocked = false;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (Locked && FactDB.GetBoolFact(m_UnlockKey))
+            {
+                Unlock();
+                m_ItemToUnlock.UseItem();
+            }
+        }
     }
 
     protected override void Reset()

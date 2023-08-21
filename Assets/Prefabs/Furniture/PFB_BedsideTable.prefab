@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Animator: {fileID: 4346405450205413559}
   m_ObjectNumber: 1
   m_IsLocked: 0
+  m_UnlockKey: 
+  m_ItemsToUnlock: []
 --- !u!1 &4396506344902064901
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +222,7 @@ GameObject:
   - component: {fileID: 4428507301314867419}
   - component: {fileID: 4418520348972370867}
   - component: {fileID: 4459501587386889817}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -19,6 +19,7 @@ public class SafePuzzle : MonoBehaviour
     [SerializeField] private AudioClip m_ClickySound;
     [SerializeField] private AudioClip m_ErrorSound;
     [SerializeField] private AudioClip m_SuccessSound;
+    [SerializeField] private AudioClip m_PickUpSound;
 
     private void Awake()
     {
@@ -68,6 +69,7 @@ public class SafePuzzle : MonoBehaviour
         if (item == m_Key)
         {
             m_SpotLight.SetActive(false);
+            m_AudioSource.PlayOneShot(m_PickUpSound);
 
             // Disable ClickOverlayButton in children
             foreach (Transform child in transform)

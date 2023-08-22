@@ -377,3 +377,4 @@ MonoBehaviour:
   m_AudioSource: {fileID: 1170855738086584104}
   m_OpenSound: {fileID: 8300000, guid: 32baef4f9541bf942b6f9dcd7f979aa9, type: 3}
   m_Animator: {fileID: 8208062732462928376}
+  m_PickUpSound: {fileID: 8300000, guid: a3369c0ad4bd3384ea27d7109cdec0cd, type: 3}

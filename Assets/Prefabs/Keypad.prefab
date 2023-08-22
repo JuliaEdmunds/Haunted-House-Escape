@@ -499,6 +499,7 @@ MonoBehaviour:
           m_StringArgument: 4
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0
 --- !u!1 &1360716417199149791
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +759,7 @@ MonoBehaviour:
           m_StringArgument: 7
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0
 --- !u!65 &6200310675738133029
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -794,6 +796,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls: []
+  IsEnabled: 0
 --- !u!1 &1810057816144332179
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +984,7 @@ MonoBehaviour:
           m_StringArgument: 8
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0
 --- !u!65 &5969295136789533594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1017,6 +1021,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls: []
+  IsEnabled: 0
 --- !u!1 &2675746783485922508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,6 +1209,7 @@ MonoBehaviour:
           m_StringArgument: 5
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0
 --- !u!65 &1232666873566426902
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1240,6 +1246,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls: []
+  IsEnabled: 0
 --- !u!1 &2695916271419994107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1434,7 @@ MonoBehaviour:
           m_StringArgument: 0
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0
 --- !u!65 &3455691202962178595
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1463,6 +1471,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls: []
+  IsEnabled: 0
 --- !u!1 &2719359152434226914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,6 +1659,7 @@ MonoBehaviour:
           m_StringArgument: 3
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0
 --- !u!65 &8013288375586329336
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1686,6 +1696,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls: []
+  IsEnabled: 0
 --- !u!1 &3246113000431871268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,6 +2139,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0
 --- !u!1 &4412898331016742757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,6 +2426,7 @@ MonoBehaviour:
           m_StringArgument: 1
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0
 --- !u!1 &4891323565044092677
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,6 +2693,7 @@ MonoBehaviour:
           m_StringArgument: 9
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0
 --- !u!65 &8932197417764135792
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2716,6 +2730,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls: []
+  IsEnabled: 0
 --- !u!1 &5559361630907362368
 GameObject:
   m_ObjectHideFlags: 0
@@ -3377,6 +3392,7 @@ MonoBehaviour:
           m_StringArgument: 2
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0
 --- !u!65 &3952376589503090673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3413,6 +3429,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls: []
+  IsEnabled: 0
 --- !u!1 &8161647559689186941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3600,6 +3617,7 @@ MonoBehaviour:
           m_StringArgument: 6
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0
 --- !u!65 &9108333960557354487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3636,6 +3654,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls: []
+  IsEnabled: 0
 --- !u!1 &8294523358642589209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3766,10 +3785,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SafeDoor: {fileID: 0}
   m_UserInput: {fileID: 8752291639833834125}
+  m_Key: {fileID: 0}
+  m_SpotLight: {fileID: 0}
   m_AudioSource: {fileID: 5273599199113846170}
   m_ClickySound: {fileID: 8300000, guid: 7f9c87925441e43bdbb6399f1c1793a6, type: 3}
   m_ErrorSound: {fileID: 8300000, guid: 7348d896b085f9e4a97221a4103d4b60, type: 3}
-  m_SuccessSound: {fileID: 8300000, guid: 0bbbaba67830d09458a223eaf499399c, type: 3}
+  m_SuccessSound: {fileID: 8300000, guid: 32baef4f9541bf942b6f9dcd7f979aa9, type: 3}
+  m_PickUpSound: {fileID: 8300000, guid: a3369c0ad4bd3384ea27d7109cdec0cd, type: 3}
 --- !u!82 &5273599199113846170
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4073,3 +4095,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  IsEnabled: 0

@@ -22,6 +22,7 @@ public class JigsawPuzzle : MonoBehaviour
     [SerializeField] private AudioSource m_AudioSource;
     [SerializeField] private AudioClip m_OpenSound;
     [SerializeField] private Animator m_Animator;
+    [SerializeField] private AudioClip m_PickUpSound;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class JigsawPuzzle : MonoBehaviour
         {
             m_PuzzlePieces.Remove(item);
             item.gameObject.SetActive(false);
+            m_AudioSource.PlayOneShot(m_PickUpSound);
         }
 
         if (m_PuzzlePieces.Count == 0)

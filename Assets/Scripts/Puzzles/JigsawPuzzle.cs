@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
@@ -11,18 +12,21 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class JigsawPuzzle : MonoBehaviour
 {
     private const string JIGSAW_PUZZLE_SOLVED_KEY = "JigsawPuzzleSolved";
+    private const string ANIM_BOOL_NAME = "isComplete";
 
     [Header("Puzzle Elements")]
     [SerializeField] private MoveableObject m_PantryDoor;
     [SerializeField] private List<CollectableItem> m_PuzzlePieces;
 
-    [Header("Audio")]
+    [Header("SFX & Animation")]
     [SerializeField] private AudioSource m_AudioSource;
     [SerializeField] private AudioClip m_OpenSound;
+    [SerializeField] private Animator m_Animator;
 
     private void Awake()
     {
         CollectableItem.OnItemCollected += OnItemCollected;
+        MoveableObject.OnObjectUnlocked += OnObjectUnlocked;
     }
 
     private void OnItemCollected(CollectableItem item)
@@ -39,12 +43,13 @@ public class JigsawPuzzle : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnObjectUnlocked(MoveableObject unlockedObject)
     {
-        // TODO: Add an animation for the puzzle pieces to fly into the puzzle
-        if ((other.CompareTag("Player") && !m_PantryDoor.Locked))
+        if (unlockedObject == m_PantryDoor)
         {
             m_AudioSource.PlayOneShot(m_OpenSound);
+            m_Animator.enabled = true;
+            m_Animator.SetBool(ANIM_BOOL_NAME, true);
         }
     }
 }

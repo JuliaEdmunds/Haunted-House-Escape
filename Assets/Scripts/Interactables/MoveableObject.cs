@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveableObject : AInteractableObject
 {
     private const string ANIM_BOOL_NAME = "isOpen_Obj_";
+
+    public static event Action<MoveableObject> OnObjectUnlocked;
 
     [SerializeField] private Animator m_Animator;
     private bool m_IsOpen;
@@ -55,6 +58,7 @@ public class MoveableObject : AInteractableObject
     public void Unlock()
     {
         m_IsLocked = false;
+        OnObjectUnlocked?.Invoke(this);
     }
 
     public void OnTriggerEnter(Collider other)

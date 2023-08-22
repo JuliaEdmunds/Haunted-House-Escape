@@ -60,7 +60,6 @@ public class SafePuzzle : MonoBehaviour
     {
         m_SafeDoor.Unlock();
         m_AudioSource.PlayOneShot(m_SuccessSound);
-        FactDB.SetBoolFact(SAFE_PUZZLE_SOLVED_KEY, true);
         m_Key.gameObject.SetActive(true);
     }
 
@@ -68,6 +67,7 @@ public class SafePuzzle : MonoBehaviour
     {
         if (item == m_Key)
         {
+            FactDB.SetBoolFact(SAFE_PUZZLE_SOLVED_KEY, true);
             m_SpotLight.SetActive(false);
             m_AudioSource.PlayOneShot(m_PickUpSound);
 

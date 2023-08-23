@@ -6,7 +6,7 @@ public class InventoryVisualController : MonoBehaviour
 
     private void Start()
     {
-        m_InventoryUI.gameObject.SetActive(false);
+        m_InventoryUI.gameObject.SetActive(true);
     }
 
     private void Update()

@@ -11,16 +11,8 @@ public class CollectableItem : AInteractableObject
     [SerializeField] private ECollectable m_ItemType;
     public ECollectable ItemType => m_ItemType;
 
-    [SerializeField] private bool m_IsLocked;
-    public bool Locked => m_IsLocked;
-
     public override void Interact()
     {
-        if (Locked)
-        {
-            return;
-        }
-
         FactDB.SetIntFact(ItemType.ToString(), EOperation.Add, 1);
         OnItemCollected?.Invoke(this);
         gameObject.SetActive(false);
@@ -29,15 +21,8 @@ public class CollectableItem : AInteractableObject
     public override void LookAt(GUIConfig guiController)
     {
         guiController.ShouldShowMsg = true;
+        guiController.ShowInteractMsg("Press E/Fire1 to pick up");
 
-        if (Locked)
-        {
-            guiController.ShowInteractMsg("It's locked. You need to find a way to unlock it first.");
-        }
-        else
-        {
-            guiController.ShowInteractMsg("Press E/Fire1 to pick up");
-        }
     }
 
     public void UseItem()

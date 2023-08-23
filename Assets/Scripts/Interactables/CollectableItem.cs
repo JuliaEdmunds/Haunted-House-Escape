@@ -21,7 +21,6 @@ public class CollectableItem : AInteractableObject
             return;
         }
 
-        // TODO: Implement picking up item, showing it in the inventory and updating the FactsDB
         FactDB.SetIntFact(ItemType.ToString(), EOperation.Add, 1);
         OnItemCollected?.Invoke(this);
         gameObject.SetActive(false);

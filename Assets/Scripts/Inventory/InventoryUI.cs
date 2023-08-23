@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -10,8 +9,6 @@ public class InventoryUI : MonoBehaviour
         CollectableItem.OnItemCollected += OnItemCollected;
         CollectableItem.OnItemUsed += OnItemUsed;
     }
-
-    // TODO: Implement the inventory UI
 
     private void OnItemCollected(CollectableItem item)
     {

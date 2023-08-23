@@ -6,6 +6,7 @@ using UnityEngine;
 public class PuzzleManager : MonoBehaviour
 {
     private const string SAFE_PUZZLE_CODE_KEY = "SafePuzzleCode";
+    private const string CANDLE_PUZZLE_CODE_KEY = "CandlePuzzleCode";
 
     [Header("Safe Puzzle Elements")]
     [SerializeField] private List<GameObject> m_PosterPossiblePositions;
@@ -23,6 +24,7 @@ public class PuzzleManager : MonoBehaviour
     {
         SetSafePuzzle();
         SetPuzzlePieces();
+        SetCandlePuzzle();
     }
 
     private void SetSafePuzzle()
@@ -85,6 +87,14 @@ public class PuzzleManager : MonoBehaviour
             currentPuzzle.transform.localPosition = Vector3.zero;
             currentPuzzle.transform.localRotation = Quaternion.identity;
         }
+    }
+
+    private void SetCandlePuzzle()
+    {
+        // Code is fixed based on the candles size
+        int passcode = 132;
+
+        FactDB.SetIntFact(CANDLE_PUZZLE_CODE_KEY, EOperation.Set, passcode);
     }
 
 

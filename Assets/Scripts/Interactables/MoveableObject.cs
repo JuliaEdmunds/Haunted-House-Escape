@@ -61,7 +61,7 @@ public class MoveableObject : AInteractableObject
         OnObjectUnlocked?.Invoke(this);
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {

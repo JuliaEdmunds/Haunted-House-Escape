@@ -27,6 +27,13 @@ public class MoveableObject : AInteractableObject
 
     public override void Interact()
     {
+#if UNITY_EDITOR
+        if (Locked && Input.GetKey(KeyCode.LeftControl))
+        {
+            Unlock();
+        }
+#endif
+
         if (Locked)
         {
             return;

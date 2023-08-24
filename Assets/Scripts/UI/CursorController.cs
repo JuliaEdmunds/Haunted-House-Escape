@@ -11,7 +11,6 @@ public class CursorController : MonoBehaviour
 
     private float m_XAxisClamp;
     private bool m_CursorIsLocked = true;
-    private bool m_IgnoreNextMouseMovement = false;
 
     private void Awake()
     {

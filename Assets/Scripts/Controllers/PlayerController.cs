@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(2f, 4f)] private float movementSpeed;
 
     private CharacterController m_CharController;
-    private bool m_IgnoreNextMouseMovement = false;
 
     private void Awake()
     {

@@ -6,4 +6,5 @@ public enum ECollectable
     None,
     Key,
     Puzzle,
+    Sellable
 }

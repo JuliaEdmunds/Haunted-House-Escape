@@ -5,6 +5,8 @@ public static class FactDB
 {
     private static Dictionary<string, int> m_Facts = new();
 
+    private static Dictionary<string, string> m_StringFacts = new();
+
     public static bool GetBoolFact(string key)
     {
         if (m_Facts.TryGetValue(key, out int value) && value != 0)
@@ -26,6 +28,18 @@ public static class FactDB
         else
         {
             return 0;
+        }
+    }
+
+    public static string GetStringFact(string key)
+    {
+        if (m_StringFacts.TryGetValue(key, out string value))
+        {
+            return value;
+        }
+        else
+        {
+            return string.Empty;
         }
     }
 
@@ -51,5 +65,10 @@ public static class FactDB
                 m_Facts[key] = value;
                 break;
         }
+    }
+
+    public static void SetStringFact(string key, string value)
+    {
+        m_StringFacts[key] = value;
     }
 }

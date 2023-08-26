@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: TextTable_pl
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pl
+  m_SharedData: {fileID: 11400000, guid: ea6acf1aef4578f4693f7dd26e345fa7, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12198043648
+    m_Localized: "Witaj, zm\u0119czony podr\xF3\u017Cniku. Budzisz si\u0119 zamkni\u0119ty
+      w tajemniczej, s\u0142abo o\u015Bwietlonej chacie. Powietrze jest g\u0119ste
+      od napi\u0119cia, a szepty przesz\u0142o\u015Bci nawiedzaj\u0105 ka\u017Cd\u0105
+      skrzypi\u0105c\u0105 desk\u0119 w pod\u0142odze. Aby odzyska\u0107 wolno\u015B\u0107,
+      musisz rozwik\u0142a\u0107 ukryte sekrety chaty, rozwi\u0105za\u0107 zmy\u015Blne
+      zagadki i znale\u017A\u0107 kluczowe przedmioty rozsiane w enigmatycznych zak\u0105tkach.
+      Pami\u0119taj, zegar tyka, a ty nie jeste\u015B tu jedyny. Czy uda ci si\u0119
+      uciec, czy staniesz si\u0119 kolejn\u0105 zapomnian\u0105 histori\u0105 w anna\u0142ach
+      tego ponurego mieszkania? Wyb\xF3r nale\u017Cy do ciebie. \n\nNiech gra si\u0119
+      rozpocznie..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11497599098880
+    m_Localized: "Wpisz swoje imi\u0119"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

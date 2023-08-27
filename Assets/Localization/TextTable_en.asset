@@ -33,6 +33,34 @@ MonoBehaviour:
     m_Localized: "Please enter your name\u200B"
     m_Metadata:
       m_Items: []
+  - m_Id: 361458647916544
+    m_Localized: 'Escapes Enigmatic Cabin: A Tale of Wits and Courage'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374123487256576
+    m_Localized: Clocking in at
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374156991356928
+    m_Localized: dashed through enigmas faster than a caffeinated squirrel!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460360793415680
+    m_Localized: left empty-handed. Maybe next time you'll catch more than just cobwebs!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460367126814720
+    m_Localized: has one item in the bag! The cabin still holds more secrets.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460371061071872
+    m_Localized: found two items! Yet, one treasure still eludes them.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460480926670848
+    m_Localized: hit the jackpot! All of the cabin's hidden treasures are now unearthed.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

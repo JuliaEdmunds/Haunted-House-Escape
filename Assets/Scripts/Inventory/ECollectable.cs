@@ -6,5 +6,7 @@ public enum ECollectable
     None,
     Key,
     Puzzle,
-    Sellable
+    Lamp,
+    Ring,
+    Remote
 }

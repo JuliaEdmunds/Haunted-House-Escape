@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: TextTable_de
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: de
+  m_SharedData: {fileID: 11400000, guid: ea6acf1aef4578f4693f7dd26e345fa7, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12198043648
+    m_Localized: "Willkommen, ersch\xF6pfter Reisender. Du findest dich eingeschlossen
+      in einer mysteri\xF6sen, d\xFCster beleuchteten H\xFCtte. Die Luft ist dick
+      vor Anspannung, und die Fl\xFCstern der Vergangenheit verfolgen jeden quietschenden
+      Dielenboden. Um deine Freiheit wiederzuerlangen, musst du die verborgenen Geheimnisse
+      der H\xFCtte entwirren, knifflige R\xE4tsel l\xF6sen und entscheidende Gegenst\xE4nde
+      in r\xE4tselhaften Ecken finden. Bedenke, die Uhr tickt und du bist nicht allein
+      hier. Wirst du entkommen oder ein weiteres vergessenes Kapitel in den Annalen
+      dieses d\xFCsteren Zuhauses werden? Die Wahl liegt bei dir. Das Spiel beginnt."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11497599098880
+    m_Localized: Bitte geben Sie Ihren Namen ein
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361458647916544
+    m_Localized: "Entkommt aus R\xE4tselhafter H\xFCtte: Eine Geschichte von Scharfsinn
+      und Mut"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374123487256576
+    m_Localized: Mit einer Zeit von
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374156991356928
+    m_Localized: "hat die R\xE4tsel schneller gel\xF6st als ein koffeinverst\xE4rktes
+      Eichh\xF6rnchen!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460360793415680
+    m_Localized: "geht mit leeren H\xE4nden. Vielleicht f\xE4ngt er n\xE4chstes Mal
+      mehr als nur Spinnweben."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460367126814720
+    m_Localized: "hat einen Gegenstand im Sack! Die H\xFCtte hat noch mehr Geheimnisse."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460480926670848
+    m_Localized: "hat den Jackpot geknackt! Alle versteckten Sch\xE4tze der H\xFCtte
+      sind gefunden."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460371061071872
+    m_Localized: "hat zwei Gegenst\xE4nde gefunden! Ein Schatz entgeht ihm jedoch
+      noch."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

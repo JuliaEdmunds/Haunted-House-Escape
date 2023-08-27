@@ -35,6 +35,37 @@ MonoBehaviour:
     m_Localized: "Wpisz swoje imi\u0119"
     m_Metadata:
       m_Items: []
+  - m_Id: 361458647916544
+    m_Localized: "Ucieka z Tajemniczej Chaty: Opowie\u015B\u0107 o Sprycie i Odwadze"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374123487256576
+    m_Localized: Z czasem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374156991356928
+    m_Localized: "rozwi\u0105za\u0142/a zagadki szybciej ni\u017C na\u0142adowana
+      kofein\u0105 wiewi\xF3rka!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460360793415680
+    m_Localized: "opu\u015Bci\u0142/a chat\u0119 z pustymi r\u0119kami. Mo\u017Ce
+      nast\u0119pnym razem z\u0142apie co\u015B wi\u0119cej ni\u017C tylko paj\u0119czyny."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460367126814720
+    m_Localized: "ma jeden przedmiot w torbie! Chata wci\u0105\u017C skrywa wi\u0119cej
+      sekret\xF3w."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460371061071872
+    m_Localized: "ma ju\u017C dwa skarby! Jeden skarb pozostaje zaginiony."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460480926670848
+    m_Localized: "trafi\u0142/a jackpot! Wszystkie ukryte skarby chaty s\u0105 odnalezione."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

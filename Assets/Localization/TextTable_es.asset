@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: TextTable_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: ea6acf1aef4578f4693f7dd26e345fa7, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12198043648
+    m_Localized: "Bienvenido, viajero agotado. Te encuentras encerrado en una misteriosa
+      caba\xF1a con poca luz. El aire est\xE1 cargado de tensi\xF3n y los susurros
+      del pasado rondan cada tabla del suelo que cruje. Para recuperar tu libertad,
+      debes desentra\xF1ar los secretos ocultos de la caba\xF1a, resolver enigmas
+      ingeniosos y encontrar objetos cruciales dispersos en rincones enigm\xE1ticos.
+      Recuerda, el reloj est\xE1 corriendo y no est\xE1s solo aqu\xED. \xBFLograr\xE1s
+      escapar o te convertir\xE1s en otra historia olvidada en los anales de esta
+      morada sombr\xEDa? La elecci\xF3n es tuya. Que comience el juego."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11497599098880
+    m_Localized: Por favor, ingresa tu nombre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361458647916544
+    m_Localized: "Escapa de la Caba\xF1a Enigm\xE1tica: Un Relato de Ingenio y Valent\xEDa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374123487256576
+    m_Localized: Con un tiempo de
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374156991356928
+    m_Localized: "resolvi\xF3 enigmas m\xE1s r\xE1pido que una ardilla con cafe\xEDna!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460360793415680
+    m_Localized: "sale con las manos vac\xEDas. Quiz\xE1s la pr\xF3xima vez atrapen
+      algo m\xE1s que telara\xF1as."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460367126814720
+    m_Localized: "tiene un art\xEDculo en la bolsa! La caba\xF1a a\xFAn guarda m\xE1s
+      secretos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460480926670848
+    m_Localized: "ha ganado el jackpot! Todos los tesoros ocultos de la caba\xF1a
+      est\xE1n descubiertos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460371061071872
+    m_Localized: "ha encontrado dos art\xEDculos! Sin embargo, todav\xEDa hay un
+      tesoro que se le escapa."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

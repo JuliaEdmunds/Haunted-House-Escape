@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class PuzzleManager : MonoBehaviour
 {
     private const string SAFE_PUZZLE_CODE_KEY = "SafePuzzleCode";
     private const string CANDLE_PUZZLE_CODE_KEY = "CandlePuzzleCode";
+    private const string END_SCENE_NAME = "End";
 
     [Header("Safe Puzzle Elements")]
     [SerializeField] private List<GameObject> m_PosterPossiblePositions;
@@ -20,8 +22,16 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private List<GameObject> m_PuzzlePossibleOtherPositions;
     [SerializeField] private List<CollectableItem> m_Puzzles;
 
+    [Header("Last Puzzle")]
+    [SerializeField] private MoveableObject m_LastDoor;
+
+    private bool m_FinalDoorUnlocked = false;
+
     private void Start()
     {
+        MoveableObject.OnObjectUnlocked += OnObjectUnlocked;
+        MoveableObject.OnObjectAnimationComplete += OnObjectAnimationComplete;
+
         SetSafePuzzle();
         SetPuzzlePieces();
         SetCandlePuzzle();
@@ -106,5 +116,28 @@ public class PuzzleManager : MonoBehaviour
         return position;
     }
 
+    private void OnObjectUnlocked(MoveableObject openedObject)
+    {
+        if (openedObject == m_LastDoor)
+        {
+            m_FinalDoorUnlocked = true;
+        }
+    }
+
+    private void OnObjectAnimationComplete(MoveableObject openedObject)
+    {
+        if (m_FinalDoorUnlocked)
+        {
+            StartCoroutine(EndGame());
+        }
+    }
+
+
+    private IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(2.5f);
+
+        SceneManager.LoadScene(END_SCENE_NAME);
+    }
 }
 

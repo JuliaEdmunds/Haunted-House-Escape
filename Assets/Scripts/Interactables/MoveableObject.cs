@@ -7,6 +7,7 @@ public class MoveableObject : AInteractableObject
     private const string ANIM_BOOL_NAME = "isOpen_Obj_";
 
     public static event Action<MoveableObject> OnObjectUnlocked;
+    public static event Action<MoveableObject> OnObjectAnimationComplete;
 
     [SerializeField] private Animator m_Animator;
     private bool m_IsOpen;
@@ -44,6 +45,8 @@ public class MoveableObject : AInteractableObject
 
         m_Animator.enabled = true;
         m_Animator.SetBool(animBoolNameNum, !isOpen);
+
+        OnObjectAnimationComplete?.Invoke(this);
     }
 
     public override void LookAt(GUIConfig guiController)

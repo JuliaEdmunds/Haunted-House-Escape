@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: TextTable_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: ea6acf1aef4578f4693f7dd26e345fa7, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12198043648
+    m_Localized: "Bienvenue, voyageur \xE9puis\xE9. Vous vous trouvez enferm\xE9
+      dans une myst\xE9rieuse cabane \xE0 peine \xE9clair\xE9e. L'air est charg\xE9
+      de tension, et les murmures du pass\xE9 hantent chaque planche grin\xE7ante.
+      Pour retrouver votre libert\xE9, vous devez percer les secrets cach\xE9s de
+      la cabane, r\xE9soudre des \xE9nigmes ing\xE9nieuses et trouver des objets
+      cruciaux \xE9parpill\xE9s dans des coins \xE9nigmatiques. Souvenez-vous, le
+      temps presse et vous n'\xEAtes pas seul ici. Allez-vous vous \xE9chapper ou
+      devenir une autre histoire oubli\xE9e dans les annales de cette demeure lugubre?
+      Le choix vous appartient. Que le jeu commence."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11497599098880
+    m_Localized: Veuillez entrer votre nom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361458647916544
+    m_Localized: "\xC9chappe \xE0 la Cabane \xC9nigmatique: Une Histoire de Ruse
+      et de Courage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374123487256576
+    m_Localized: "En r\xE9alisant un temps de"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 374156991356928
+    m_Localized: "a r\xE9solu les \xE9nigmes plus vite qu'un \xE9cureuil sous caf\xE9ine!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460360793415680
+    m_Localized: "repart les mains vides. Peut-\xEAtre que la prochaine fois, ils
+      attraperont autre chose que des toiles d'araign\xE9e."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460367126814720
+    m_Localized: a un objet en poche! La cabane garde encore des secrets.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460480926670848
+    m_Localized: "a d\xE9croch\xE9 le jackpot! Tous les tr\xE9sors cach\xE9s de la
+      cabane sont d\xE9couverts."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460371061071872
+    m_Localized: "a trouv\xE9 deux objets! Pourtant, un tr\xE9sor leur \xE9chappe
+      encore."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

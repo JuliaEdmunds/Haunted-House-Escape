@@ -38,12 +38,31 @@ public class InteractionManager : MonoBehaviour
         Vector3 rayOrigin = m_FpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
 
         //if raycast hits a collider on the rayLayerMask
-        if (!Physics.Raycast(rayOrigin, m_FpsCam.transform.forward, out RaycastHit hit, m_ReachRange, m_RayLayerMask))
+        if (Physics.Raycast(rayOrigin, m_FpsCam.transform.forward, out RaycastHit hit, m_ReachRange, m_RayLayerMask))
         {
-            return;
+            m_CurrentInteractable = hit.collider.GetComponent<IInteractable>();
         }
+        else
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(m_FpsCam.transform.position, 0.1f, m_RayLayerMask);
 
-        m_CurrentInteractable = hit.collider.GetComponent<IInteractable>();
+            if (hitColliders.Length == 0)
+            {
+                return;
+            }
+
+            for (int i = 0; i < hitColliders.Length; i++)
+            {
+                Collider currentColider = hitColliders[i];
+
+                m_CurrentInteractable = currentColider.GetComponent<IInteractable>();
+
+                if (m_CurrentInteractable != null)
+                {
+                    break;
+                }
+            }
+        }
 
         if (m_CurrentInteractable != null)
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Net.NetworkInformation;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
@@ -22,7 +23,7 @@ public class PlayerPerformance : MonoBehaviour
 
     private string m_CurrentLine;
 
-    private void Start()
+    private IEnumerator Start()
     {
         string playerName = FactDB.GetStringFact(PLAYER_NAME_KEY);
         if (string.IsNullOrEmpty(playerName))
@@ -30,16 +31,19 @@ public class PlayerPerformance : MonoBehaviour
             playerName = "Bond";
         }
 
-        StartCoroutine(GetLocalizedText("Headline"));
-
         // Print headline
+        string headlineText = CheckHeadlineText();
+
+        yield return GetLocalizedText("Headline");
         m_Headline.text = $"{playerName} {m_CurrentLine}";
 
         // Print time elapsed
         string timePassed = CheckTimePassed();
-        StartCoroutine(GetLocalizedText("TimeEntry"));
+
+        yield return GetLocalizedText("TimeEntry");
         string firstLine = m_CurrentLine;
-        StartCoroutine(GetLocalizedText("TimeDescription"));
+
+        yield return CheckTimeText();
         string secondLine = m_CurrentLine;
 
         string timePassedText = $"{firstLine} {timePassed}, {playerName} {secondLine}";
@@ -47,45 +51,66 @@ public class PlayerPerformance : MonoBehaviour
 
         // Print items collected
         ShowItemsCollected();
-        string itemsCollected = CheckItemsCollectedText();
+
+        yield return CheckItemsCollectedText();
+        string itemsCollected = m_CurrentLine;
+
         m_ItemsCollectedText.text = $"{playerName} {itemsCollected}";
+    }
+
+    private string CheckHeadlineText()
+    {
+        StartCoroutine(GetLocalizedText("Headline"));
+        string headlineText = m_CurrentLine;
+
+        return headlineText;
     }
 
     private string CheckTimePassed()
     {
         TimeSpan time = TimeSpan.FromSeconds(FactDB.GetIntFact(TIME_PASSED_KEY));
-        string formattedTime;
-        return formattedTime = $"{time.Hours:D2}h:{time.Minutes:D2}m:{time.Seconds:D2}s";
+        return _ = $"{time.Hours:D2}h:{time.Minutes:D2}m:{time.Seconds:D2}s";
     }
 
-    private string CheckItemsCollectedText()
+    private IEnumerator CheckTimeText()
     {
-        string itemsCollected = "";
+        float time = FactDB.GetIntFact(TIME_PASSED_KEY); ;
 
+        if (time < 300f)
+        {
+            yield return GetLocalizedText("ShortTime");
+        }
+        else if (time < 900f)
+        {
+            yield return GetLocalizedText("MediumTime");
+        }
+        else
+        {
+            yield return GetLocalizedText("LongTime");
+        }
+    }
+
+    private IEnumerator CheckItemsCollectedText()
+    {
         int numItems = FactDB.GetIntFact(ECollectable.Lamp.ToString()) + FactDB.GetIntFact(ECollectable.Ring.ToString()) + FactDB.GetIntFact(ECollectable.Remote.ToString());
 
         switch (numItems)
         {
             default:
             case 0:
-                StartCoroutine(GetLocalizedText("NoItems"));
-                itemsCollected = m_CurrentLine;
+                yield return GetLocalizedText("NoItems");
                 break;
             case 1:
-                StartCoroutine(GetLocalizedText("OneItem"));
-                itemsCollected = m_CurrentLine;
+                yield return GetLocalizedText("OneItem");
                 break;
             case 2:
-                StartCoroutine(GetLocalizedText("TwoItems"));
-                itemsCollected = m_CurrentLine;
+                yield return GetLocalizedText("TwoItems");
                 break;
             case 3:
-                StartCoroutine(GetLocalizedText("AllItems"));
-                itemsCollected = m_CurrentLine;
+                yield return GetLocalizedText("AllItems");
                 break;
         }
 
-        return itemsCollected;
     }
 
     private void ShowItemsCollected()

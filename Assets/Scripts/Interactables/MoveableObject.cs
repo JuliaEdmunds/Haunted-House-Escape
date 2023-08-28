@@ -29,7 +29,7 @@ public class MoveableObject : AInteractableObject
     public override void Interact()
     {
 #if UNITY_EDITOR
-        if (Locked && Input.GetKey(KeyCode.LeftControl))
+        if (Locked && Input.GetKey(KeyCode.LeftControl) && Input.GetButtonDown("Fire1"))
         {
             Unlock();
         }

@@ -66,6 +66,15 @@ MonoBehaviour:
       noch."
     m_Metadata:
       m_Items: []
+  - m_Id: 683086934138880
+    m_Localized: "hat die R\xE4tsel gel\xF6st wie ein Wochenend-Radfahrer\u2014stetig,
+      aber mit Luft nach oben!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683214289985536
+    m_Localized: hat sich Zeit gelassen, wie ein Feinschmecker bei einem Gourmet-Essen!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -66,6 +66,16 @@ MonoBehaviour:
     m_Localized: "trafi\u0142/a jackpot! Wszystkie ukryte skarby chaty s\u0105 odnalezione."
     m_Metadata:
       m_Items: []
+  - m_Id: 683086934138880
+    m_Localized: "rozwi\u0105zywa\u0142/a zagadki jak rowerzysta weekendowy\u2014stabilnie,
+      ale jest miejsce na przyspieszenie!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683214289985536
+    m_Localized: "sp\u0119dzi\u0142/a sporo czasu, jak smakosz delektuj\u0105cy si\u0119
+      wykwintnym posi\u0142kiem!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

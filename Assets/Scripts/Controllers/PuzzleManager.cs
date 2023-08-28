@@ -102,7 +102,7 @@ public class PuzzleManager : MonoBehaviour
     private void SetCandlePuzzle()
     {
         // Code is fixed based on the candles size
-        int passcode = 231;
+        int passcode = 132;
 
         FactDB.SetIntFact(CANDLE_PUZZLE_CODE_KEY, EOperation.Set, passcode);
     }

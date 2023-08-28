@@ -65,6 +65,16 @@ MonoBehaviour:
       tesoro que se le escapa."
     m_Metadata:
       m_Items: []
+  - m_Id: 683086934138880
+    m_Localized: "naveg\xF3 por los enigmas como un ciclista de fin de semana\u2014constante,
+      pero con margen para acelerar!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683214289985536
+    m_Localized: "se tom\xF3 su tiempo dulce, como un sibarita saboreando una comida
+      gourmet!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

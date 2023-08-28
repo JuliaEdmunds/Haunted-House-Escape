@@ -66,6 +66,15 @@ MonoBehaviour:
       encore."
     m_Metadata:
       m_Items: []
+  - m_Id: 683086934138880
+    m_Localized: "a navigu\xE9 \xE0 travers les \xE9nigmes comme un cycliste du dimanche\u2014stable,
+      mais peut faire mieux!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 683214289985536
+    m_Localized: a pris tout son temps, comme un gastronome savourant un repas gourmet!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

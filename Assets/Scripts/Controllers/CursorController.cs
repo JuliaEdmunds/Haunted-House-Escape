@@ -6,8 +6,8 @@ public class CursorController : MonoBehaviour
     private const string MOUSE_X_INPUT_NAME = "Mouse X";
     private const string MOUSE_Y_INPUT_NAME = "Mouse Y";
 
-    [SerializeField] private float mouseSensitivity = 300f;
-    [SerializeField] private Transform playerBody;
+    [SerializeField] private float m_MouseSensitivity;
+    [SerializeField] private Transform m_PlayerBody;
 
     private float m_XAxisClamp;
     private bool m_CursorIsLocked = true;
@@ -51,11 +51,11 @@ public class CursorController : MonoBehaviour
         m_XAxisClamp = Mathf.Clamp(m_XAxisClamp, -MAX_X_AXIS_ANGLE, MAX_X_AXIS_ANGLE);
 
         transform.rotation = Quaternion.Euler(m_XAxisClamp, transform.eulerAngles.y, 0.0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        m_PlayerBody.Rotate(Vector3.up * mouseX);
     }
 
     private float GetMouseInput(string axisName)
     {
-        return Input.GetAxis(axisName) * mouseSensitivity * Time.deltaTime;
+        return Input.GetAxis(axisName) * m_MouseSensitivity * Time.deltaTime;
     }
 }

@@ -56,6 +56,7 @@ public class SafePuzzle : MonoBehaviour
 
     private void UnlockSafe()
     {
+        m_SpotLight.SetActive(true);
         m_SafeDoor.Unlock();
         m_AudioSource.PlayOneShot(m_SuccessSound);
         m_Key.gameObject.SetActive(true);

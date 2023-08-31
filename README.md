@@ -1,4 +1,4 @@
-# Haunted House Escape
+# Mystery Escape: Abduction
 
 ## Project goal
 This project aimed at utilising as much generative AI as possible for me to get a better understanding of what AI in games can and cannot do well right now (all my previous projects have been created purely by my own knowledge & skill). The outcome, aside from the fully playable game, is an extensive note on the learnings from prompt engineering.

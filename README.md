@@ -1,5 +1,16 @@
 # Haunted House Escape
-This project aims at utilising as much generative AI as possible for me to get a better understanding of what AI in games can and cannot do well right now.
+
+## Project goal
+This project aimed at utilising as much generative AI as possible for me to get a better understanding of what AI in games can and cannot do well right now (all my previous projects have been created purely by my own knowledge & skill). The outcome, aside from the fully playable game, is an extensive note on the learnings from prompt engineering.
+
+## Project description
+Mystery Escape: Abduction, is a pulse-pounding escape room adventure game that drags the Player into a realm of secrets and suspense. Trapped in a cryptic cabin, the Player needs their wits, resourcefulness, and a flair for puzzle-solving to unravel all mysteries and escape.
+
+## Published at
+- [itch.io](https://cups-games.itch.io/mystery-escape-abduction)
+
+## Learnings from prompt engineering in Mystery Escape: Abduction
+- [Docs](https://docs.google.com/document/d/1koX9awB2v-dRUKIPmd1OgRFsNmDzrUtbLTY93W0NSGQ/edit?usp=sharing)
 
 ## Credits
 - <a href="https://www.kittl.com">Posters created with www.kittl.com</a>

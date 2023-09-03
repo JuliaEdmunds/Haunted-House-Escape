@@ -1,7 +1,9 @@
 # Mystery Escape: Abduction
 
 ## Project goal
-This project aimed at utilising as much generative AI as possible for me to get a better understanding of what AI in games can and cannot do well right now (all my previous projects have been created purely by my own knowledge & skill). The outcome, aside from the fully playable game, is an extensive note on the learnings from prompt engineering.
+This project aimed at utilising as much generative AI as possible for me to get a better understanding of what AI in games can and cannot do well right now (all my previous projects have been created purely by my own knowledge & skill). 
+
+The outcome, aside from the fully playable game, is an extensive note on the learnings from prompt engineering.
 
 ## Project description
 Mystery Escape: Abduction, is a pulse-pounding escape room adventure game that drags the Player into a realm of secrets and suspense. Trapped in a cryptic cabin, the Player needs their wits, resourcefulness, and a flair for puzzle-solving to unravel all mysteries and escape.

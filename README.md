@@ -26,3 +26,7 @@ Mystery Escape: Abduction, is a pulse-pounding escape room adventure game that d
 - Click Sound Effect by <a href="https://pixabay.com/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=140881">UNIVERSFIELD</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=140881">Pixabay</a>
 - Item pick up sound effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=36275">Pixabay</a>
 - More SFX created with with <a href="https://www.suno.ai/">Suno AI</a>
+- Game icon generated with Midjourney 
+
+## To run in Editor
+Run from the "Splash" scene

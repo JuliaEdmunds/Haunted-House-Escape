@@ -10,6 +10,9 @@ public class PlayerPerformance : MonoBehaviour
     private const string TIME_PASSED_KEY = "TimePassed";
     private const string PLAYER_NAME_KEY = "PlayerName";
 
+    private const float LOW_TIME = 300f;
+    private const float MID_TIME = 900f;
+
     [Header("Text Elements")]
     [SerializeField] private TextMeshProUGUI m_Headline;
     [SerializeField] private TextMeshProUGUI m_TimePassedText;
@@ -31,10 +34,9 @@ public class PlayerPerformance : MonoBehaviour
         }
 
         // Print headline
-        string headlineText = CheckHeadlineText();
-
         yield return GetLocalizedText("Headline");
-        m_Headline.text = $"{playerName} {m_CurrentLine}";
+        string headline = m_CurrentLine;
+        m_Headline.text = $"{playerName} {headline}";
 
         // Print time elapsed
         string timePassed = CheckTimePassed();
@@ -57,14 +59,6 @@ public class PlayerPerformance : MonoBehaviour
         m_ItemsCollectedText.text = $"{playerName} {itemsCollected}";
     }
 
-    private string CheckHeadlineText()
-    {
-        StartCoroutine(GetLocalizedText("Headline"));
-        string headlineText = m_CurrentLine;
-
-        return headlineText;
-    }
-
     private string CheckTimePassed()
     {
         TimeSpan time = TimeSpan.FromSeconds(FactDB.GetIntFact(TIME_PASSED_KEY));
@@ -75,11 +69,11 @@ public class PlayerPerformance : MonoBehaviour
     {
         float time = FactDB.GetIntFact(TIME_PASSED_KEY); ;
 
-        if (time < 300f)
+        if (time < LOW_TIME)
         {
             yield return GetLocalizedText("ShortTime");
         }
-        else if (time < 900f)
+        else if (time < MID_TIME)
         {
             yield return GetLocalizedText("MediumTime");
         }
@@ -91,40 +85,47 @@ public class PlayerPerformance : MonoBehaviour
 
     private IEnumerator CheckItemsCollectedText()
     {
-        int numItems = FactDB.GetIntFact(ECollectable.Lamp.ToString()) + FactDB.GetIntFact(ECollectable.Ring.ToString()) + FactDB.GetIntFact(ECollectable.Remote.ToString());
+        int numItems = FactDB.GetIntFact(ECollectable.Lamp.ToString()) 
+            + FactDB.GetIntFact(ECollectable.Ring.ToString()) 
+            + FactDB.GetIntFact(ECollectable.Remote.ToString());
 
         switch (numItems)
         {
-            default:
             case 0:
                 yield return GetLocalizedText("NoItems");
                 break;
+
             case 1:
                 yield return GetLocalizedText("OneItem");
                 break;
+
             case 2:
                 yield return GetLocalizedText("TwoItems");
                 break;
+
             case 3:
                 yield return GetLocalizedText("AllItems");
                 break;
+
+            default:
+                throw new ArgumentOutOfRangeException($"Unsoprted number of collected items: {numItems}");
         }
 
     }
 
     private void ShowItemsCollected()
     {
-        if (FactDB.GetIntFact(ECollectable.Lamp.ToString()) > 0)
+        if (FactDB.GetBoolFact(ECollectable.Lamp.ToString()))
         {
             m_LampImage.gameObject.SetActive(true);
         }
 
-        if (FactDB.GetIntFact(ECollectable.Ring.ToString()) > 0)
+        if (FactDB.GetBoolFact(ECollectable.Ring.ToString()))
         {
             m_RingImage.gameObject.SetActive(true);
         }
 
-        if (FactDB.GetIntFact(ECollectable.Remote.ToString()) > 0)
+        if (FactDB.GetBoolFact(ECollectable.Remote.ToString()))
         {
             m_RemoteImage.gameObject.SetActive(true);
         }
@@ -142,4 +143,3 @@ public class PlayerPerformance : MonoBehaviour
         m_CurrentLine = op.Result;
     }
 }
-

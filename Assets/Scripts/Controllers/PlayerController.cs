@@ -37,4 +37,3 @@ public class PlayerController : MonoBehaviour
         FactDB.SetIntFact(TIME_PASSED_KEY, EOperation.Set, (int)timePassed);
     }
 }
-

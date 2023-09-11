@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MoveableObject : AInteractableObject
 {
-    private const string ANIM_BOOL_NAME = "isOpen_Obj_";
+    private const string ANIM_BOOL_NAME_PREFIX = "isOpen_Obj_";
+    private int m_AnimHash;
 
     public static event Action<MoveableObject> OnObjectUnlocked;
     public static event Action<MoveableObject> OnObjectAnimationComplete;
@@ -23,12 +24,15 @@ public class MoveableObject : AInteractableObject
 
     private void Start()
     {
-        m_Animator.enabled = false;  // Disable animation states by default.  
+        // Set up animator hash and disable animation states by default
+        m_AnimHash = Animator.StringToHash(ANIM_BOOL_NAME_PREFIX + ObjectNumber);
+        m_Animator.enabled = false;  
     }
 
     public override void Interact()
     {
 #if UNITY_EDITOR
+        // If run in Unity Editor allow for the cheat locked door opening for faster testing
         if (Locked && Input.GetKey(KeyCode.LeftControl) && Input.GetButtonDown("Fire1"))
         {
             Unlock();
@@ -40,11 +44,11 @@ public class MoveableObject : AInteractableObject
             return;
         }
 
-        string animBoolNameNum = ANIM_BOOL_NAME + ObjectNumber.ToString();
-        bool isOpen = m_Animator.GetBool(animBoolNameNum); // Need current state for message.
+        // Need current state for message
+        bool isOpen = m_Animator.GetBool(m_AnimHash); 
 
         m_Animator.enabled = true;
-        m_Animator.SetBool(animBoolNameNum, !isOpen);
+        m_Animator.SetBool(m_AnimHash, !isOpen);
 
         OnObjectAnimationComplete?.Invoke(this);
     }
@@ -52,8 +56,9 @@ public class MoveableObject : AInteractableObject
     public override void LookAt(GUIConfig guiController)
     {
         guiController.ShouldShowMsg = true;
-        string animBoolNameNum = ANIM_BOOL_NAME + ObjectNumber.ToString();
-        m_IsOpen = m_Animator.GetBool(animBoolNameNum); // Need current state for message.
+
+        // Need current state for message
+        m_IsOpen = m_Animator.GetBool(m_AnimHash); 
 
         if (Locked)
         {
@@ -67,26 +72,30 @@ public class MoveableObject : AInteractableObject
 
     public void Unlock()
     {
-        m_IsLocked = false;
-        OnObjectUnlocked?.Invoke(this);
+        if (Locked)
+        {
+            m_IsLocked = false;
+
+            if (m_ItemsToUnlock.Count != 0)
+            {
+                for (int i = 0; i < m_ItemsToUnlock.Count; i++)
+                {
+                    CollectableItem itemToUnlock = m_ItemsToUnlock[i];
+                    itemToUnlock.UseItem();
+                }
+            }
+
+            OnObjectUnlocked?.Invoke(this);
+        }
     }
 
     public void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(TagManager.PLAYER_TAG))
         {
             if (Locked && FactDB.GetBoolFact(m_UnlockKey))
             {
                 Unlock();
-
-                if (m_ItemsToUnlock.Count != 0)
-                {
-                    for (int i = 0; i < m_ItemsToUnlock.Count; i++)
-                    {
-                        CollectableItem itemToUnlock = m_ItemsToUnlock[i];
-                        itemToUnlock.UseItem();
-                    }
-                }
             }
         }
     }

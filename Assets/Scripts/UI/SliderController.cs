@@ -15,7 +15,7 @@ public class SliderController : MonoBehaviour
 
     public void AddValue()
     {
-        if (m_Slider.value == SLIDER_MAX_VALUE)
+        if ((int)m_Slider.value >= SLIDER_MAX_VALUE)
         {
             m_AudioSource.PlayOneShot(m_BlockedSound);
             return;
@@ -27,7 +27,7 @@ public class SliderController : MonoBehaviour
 
     public void SubtractValue()
     {
-        if (m_Slider.value == SLIDER_MIN_VALUE)
+        if ((int)m_Slider.value <= SLIDER_MIN_VALUE)
         {
             m_AudioSource.PlayOneShot(m_BlockedSound);
             return;

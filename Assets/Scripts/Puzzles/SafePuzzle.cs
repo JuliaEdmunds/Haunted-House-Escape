@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SafePuzzle : MonoBehaviour
 {
-    private const string SAFE_PUZZLE_CODE_KEY = "SafePuzzleCode";
     private const string SAFE_PUZZLE_SOLVED_KEY = "SafePuzzleSolved";
 
     [Header("Puzzle Elements")]
@@ -26,9 +25,14 @@ public class SafePuzzle : MonoBehaviour
 
     public void CheckCode()
     {
+        if (FactDB.GetBoolFact(SAFE_PUZZLE_SOLVED_KEY))
+        {
+            return;
+        }
+
         int.TryParse(m_UserInput.text, out int number);
 
-        if (number == FactDB.GetIntFact(SAFE_PUZZLE_CODE_KEY))
+        if (number == FactDB.GetIntFact(PuzzleManager.SAFE_PUZZLE_CODE_KEY))
         {
             UnlockSafe();
         }
@@ -73,9 +77,9 @@ public class SafePuzzle : MonoBehaviour
             // Disable ClickOverlayButton in children
             foreach (Transform child in transform)
             {
-                if (child.TryGetComponent<ClickOverlayButton>(out ClickOverlayButton component))
+                if (child.TryGetComponent(out ClickOverlayButton component))
                 {
-                    component.IsEnabled = false;
+                    component.enabled = false;
                 }
             }
         }
@@ -84,5 +88,10 @@ public class SafePuzzle : MonoBehaviour
     public void ResetCode()
     {
         m_UserInput.text = "";
+    }
+
+    private void OnDestroy()
+    {
+        CollectableItem.OnItemCollected -= OnItemCollected;
     }
 }

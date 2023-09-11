@@ -47,7 +47,7 @@ public class CursorController : MonoBehaviour
 
         m_XAxisClamp -= mouseY;
 
-        // allow the player to look up to 90 degrees but not look downward beyond the horizontal plane
+        // Allow the player to look up to 90 degrees but not look downward beyond the horizontal plane
         m_XAxisClamp = Mathf.Clamp(m_XAxisClamp, -MAX_X_AXIS_ANGLE, MAX_X_AXIS_ANGLE);
 
         transform.rotation = Quaternion.Euler(m_XAxisClamp, transform.eulerAngles.y, 0.0f);

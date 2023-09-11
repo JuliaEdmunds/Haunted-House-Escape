@@ -2,7 +2,7 @@
 
 public class InventoryUI : MonoBehaviour
 {
-    [SerializeField] private CollectablesDictionary m_CollectableItemsDictionary = new();
+    [SerializeField] private CollectablesDictionary m_CollectableItemsDictionary;
 
     private void Awake()
     {
@@ -20,6 +20,12 @@ public class InventoryUI : MonoBehaviour
     {
         InventorySlotUI slot = m_CollectableItemsDictionary[item];
         slot.UseItem();
+    }
+
+    private void OnDestroy()
+    {
+        CollectableItem.OnItemCollected -= OnItemCollected;
+        CollectableItem.OnItemUsed -= OnItemUsed;
     }
 }
 

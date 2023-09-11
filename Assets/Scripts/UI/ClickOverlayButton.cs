@@ -5,17 +5,9 @@ public class ClickOverlayButton : MonoBehaviour
 {
     public UnityEvent OnClick;
 
-    public bool IsEnabled;
-
-    private void Start()
-    {
-        IsEnabled = true;
-    }
-
-
     public void OnMouseDown()
     {
-        if (!IsEnabled)
+        if (!isActiveAndEnabled)
         {
             return;
         }

@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-
 public class JigsawPuzzle : MonoBehaviour
 {
     private const string JIGSAW_PUZZLE_SOLVED_KEY = "JigsawPuzzleSolved";
     private const string FINAL_KEY_COLLECTED = "IsFinalKeyCollected";
-    private const string ANIM_BOOL_NAME = "isComplete";
+    private static readonly int ANIM_BOOL_HASH = Animator.StringToHash("isComplete");
 
     [Header("Puzzle Elements")]
     [SerializeField] private MoveableObject m_PantryDoor;
@@ -35,9 +34,8 @@ public class JigsawPuzzle : MonoBehaviour
             m_AudioSource.PlayOneShot(m_PickUpSound);
         }
 
-        if (m_PuzzlePieces.Contains(item))
+        if (m_PuzzlePieces.Remove(item))
         {
-            m_PuzzlePieces.Remove(item);
             item.gameObject.SetActive(false);
             m_AudioSource.PlayOneShot(m_PickUpSound);
         }
@@ -57,8 +55,13 @@ public class JigsawPuzzle : MonoBehaviour
 
             m_AudioSource.PlayOneShot(m_OpenSound);
             m_Animator.enabled = true;
-            m_Animator.SetBool(ANIM_BOOL_NAME, true);
+            m_Animator.SetBool(ANIM_BOOL_HASH, true);
         }
     }
-}
 
+    private void OnDestroy()
+    {
+        CollectableItem.OnItemCollected -= OnItemCollected;
+        MoveableObject.OnObjectUnlocked -= OnObjectUnlocked;
+    }
+}

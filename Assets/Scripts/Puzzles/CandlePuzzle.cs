@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class CandlePuzzle : MonoBehaviour
 {
     private const string CANDLE_PUZZLE_SOLVED_KEY = "CandlePuzzleSolved";
-    private const string CANDLE_PUZZLE_CODE_KEY = "CandlePuzzleCode";
 
     [Header("Puzzle Elements")]
     [SerializeField] private Slider m_Slider1;
@@ -18,12 +17,17 @@ public class CandlePuzzle : MonoBehaviour
 
     public void CheckCode()
     {
+        if (FactDB.GetBoolFact(CANDLE_PUZZLE_SOLVED_KEY))
+        {
+            return;
+        }
+
         int slider1 = (int)m_Slider1.value;
         int slider2 = (int)m_Slider2.value;
         int slider3 = (int)m_Slider3.value;
         int code = slider1 * 100 + slider2 * 10 + slider3;
 
-        if (code != FactDB.GetIntFact(CANDLE_PUZZLE_CODE_KEY))
+        if (code != FactDB.GetIntFact(PuzzleManager.CANDLE_PUZZLE_CODE_KEY))
         {
             return;
         }
@@ -41,7 +45,7 @@ public class CandlePuzzle : MonoBehaviour
         {
             if (child.TryGetComponent<ClickOverlayButton>(out ClickOverlayButton component))
             {
-                component.IsEnabled = false;
+                component.enabled = false;
             }
         }
     }

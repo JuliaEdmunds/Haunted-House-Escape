@@ -11,6 +11,8 @@ public class CollectableItem : AInteractableObject
     [SerializeField] private ECollectable m_ItemType;
     public ECollectable ItemType => m_ItemType;
 
+    private const string PICKUP_MESSAGE = "Press E/Fire1 to pick up";
+
     public override void Interact()
     {
         FactDB.SetIntFact(ItemType.ToString(), EOperation.Add, 1);
@@ -21,8 +23,7 @@ public class CollectableItem : AInteractableObject
     public override void LookAt(GUIConfig guiController)
     {
         guiController.ShouldShowMsg = true;
-        guiController.ShowInteractMsg("Press E/Fire1 to pick up");
-
+        guiController.ShowInteractMsg(PICKUP_MESSAGE);
     }
 
     public void UseItem()

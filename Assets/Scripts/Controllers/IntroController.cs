@@ -15,12 +15,7 @@ public class IntroController : MonoBehaviour
     [SerializeField] private TMP_InputField m_InputField;
     [SerializeField] private Button m_StartButton;
 
-    private void Start()
-    {
-        StartCoroutine(ShowIntroText());
-    }
-
-    public IEnumerator ShowIntroText()
+    private IEnumerator Start()
     {
         m_IntroText.text = string.Empty;
         m_TextScreen.SetActive(true);
@@ -65,4 +60,3 @@ public class IntroController : MonoBehaviour
         SceneManager.LoadScene(GAMEPLAY_SCENE_NAME);
     }
 }
-

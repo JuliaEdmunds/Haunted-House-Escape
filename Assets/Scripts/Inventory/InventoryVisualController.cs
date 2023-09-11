@@ -23,4 +23,3 @@ public class InventoryVisualController : MonoBehaviour
         m_InventoryUI.gameObject.SetActive(!isVisible);
     }
 }
-

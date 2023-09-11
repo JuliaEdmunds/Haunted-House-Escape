@@ -7,12 +7,15 @@ public class GUIConfig
     private GUIStyle m_GuiStyle;
     private string m_Msg;
 
+    private const string OPEN_MESSAGE = "Press E/Fire1 to Open";
+    private const string CLOSE_MESSAGE = "Press E/Fire1 to Close";
+
     public GUIConfig()
     {
         SetupGui();
     }
 
-    //configure the style of the GUI
+    // Configure the style of the GUI
     private void SetupGui()
     {
         m_GuiStyle = new()
@@ -21,7 +24,7 @@ public class GUIConfig
             fontStyle = FontStyle.Bold
         };
         m_GuiStyle.normal.textColor = Color.white;
-        m_Msg = "Press E/Fire1 to Open";
+        m_Msg = OPEN_MESSAGE;
     }
 
     public void ShowInteractMsg(bool isOpen)
@@ -36,7 +39,8 @@ public class GUIConfig
 
     public void OnGUI()
     {
-        if (ShouldShowMsg) // show on-screen prompts to user for guide.
+        // Show on-screen prompts to user for guide
+        if (ShouldShowMsg) 
         {
             GUI.Label(new Rect(50, Screen.height - 50, 200, 50), m_Msg, m_GuiStyle);
         }
@@ -44,7 +48,6 @@ public class GUIConfig
 
     private string GetGuiMsg(bool isOpen)
     {
-        return isOpen ? "Press E/Fire1 to Close" : "Press E/Fire1 to Open";
+        return isOpen ? CLOSE_MESSAGE : OPEN_MESSAGE;
     }
 }
-

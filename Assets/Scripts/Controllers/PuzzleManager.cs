@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PuzzleManager : MonoBehaviour
 {
-    private const string SAFE_PUZZLE_CODE_KEY = "SafePuzzleCode";
-    private const string CANDLE_PUZZLE_CODE_KEY = "CandlePuzzleCode";
+    public const string SAFE_PUZZLE_CODE_KEY = "SafePuzzleCode";
+    public const string CANDLE_PUZZLE_CODE_KEY = "CandlePuzzleCode";
     private const string END_SCENE_NAME = "End";
 
     [Header("Safe Puzzle Elements")]
@@ -51,16 +51,20 @@ public class PuzzleManager : MonoBehaviour
 
             switch (i)
             {
-                default:
                 case 0:
                     m_1stDigit.text = value.ToString();
                     break;
+
                 case 1:
                     m_2ndDigit.text = value.ToString();
                     break;
+
                 case 2:
                     m_3rdDigit.text = value.ToString();
                     break;
+
+                default:
+                    throw new System.ArgumentException($"{i} is not a supported digit for a passcode");
             }
 
             passcode += currentDigitString;
@@ -102,7 +106,7 @@ public class PuzzleManager : MonoBehaviour
     private void SetCandlePuzzle()
     {
         // Code is fixed based on the candles size
-        int passcode = 132;
+        const int passcode = 132;
 
         FactDB.SetIntFact(CANDLE_PUZZLE_CODE_KEY, EOperation.Set, passcode);
     }
@@ -140,4 +144,3 @@ public class PuzzleManager : MonoBehaviour
         SceneManager.LoadScene(END_SCENE_NAME);
     }
 }
-

@@ -7,60 +7,62 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private float m_ReachRange = 1.8f;
 
     private Camera m_FpsCam;
-    private GameObject m_Player;
 
     private int m_RayLayerMask;
 
     protected GUIConfig m_GuiController;
 
+    private static readonly Vector3 m_RayOriginPos = new(0.5f, 0.5f, 0f);
+
+    private static readonly Collider[] m_HitColliders = new Collider[0];
+
     private void Start()
     {
-        //Initialize moveDrawController if script is enabled.
-        m_Player = GameObject.FindGameObjectWithTag("Player");
-
+        // A reference to Camera is required for rayasts
         m_FpsCam = Camera.main;
-        if (m_FpsCam == null)   //a reference to Camera is required for rayasts
+        if (m_FpsCam == null)   
         {
             throw new UnityException("A Camera tagged 'MainCamera' is missing.");
         }
 
-        //the layer used to mask raycast for interactable objects only
+        // The layer used to mask raycast for interactable objects only
         LayerMask iRayLM = LayerMask.NameToLayer("InteractRaycast");
         m_RayLayerMask = 1 << iRayLM.value;
 
-        //setup GUI style settings for user prompts
+        // Setup GUI style settings for user prompts
         m_GuiController = new GUIConfig();
     }
 
     private void Update()
     {
-        m_GuiController.ShouldShowMsg = false;
-        Vector3 rayOrigin = m_FpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
+        const float radius = 0.1f;
 
-        //if raycast hits a collider on the rayLayerMask
+        m_GuiController.ShouldShowMsg = false;
+        Vector3 rayOrigin = m_FpsCam.ViewportToWorldPoint(m_RayOriginPos);
+
+        // If raycast hits a collider on the rayLayerMask
         if (Physics.Raycast(rayOrigin, m_FpsCam.transform.forward, out RaycastHit hit, m_ReachRange, m_RayLayerMask))
         {
             m_CurrentInteractable = hit.collider.GetComponent<IInteractable>();
         }
         else
         {
-            Collider[] hitColliders = Physics.OverlapSphere(m_FpsCam.transform.position, 0.1f, m_RayLayerMask);
+            Physics.OverlapSphereNonAlloc(m_FpsCam.transform.position, radius, m_HitColliders, m_RayLayerMask);
 
-            if (hitColliders.Length == 0)
+            if (m_HitColliders.Length == 0)
             {
                 return;
             }
 
-            for (int i = 0; i < hitColliders.Length; i++)
+            for (int i = 0; i < m_HitColliders.Length; i++)
             {
-                Collider currentColider = hitColliders[i];
-
+                Collider currentColider = m_HitColliders[i];
                 m_CurrentInteractable = currentColider.GetComponent<IInteractable>();
 
                 if (m_CurrentInteractable != null)
                 {
                     break;
-                }
+                }   
             }
         }
 
@@ -80,4 +82,3 @@ public class InteractionManager : MonoBehaviour
         m_GuiController.OnGUI();
     }
 }
-

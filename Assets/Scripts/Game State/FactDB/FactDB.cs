@@ -3,44 +3,23 @@ using System.Collections.Generic;
 
 public static class FactDB
 {
-    private static Dictionary<string, int> m_Facts = new();
+    private static readonly Dictionary<string, int> m_Facts = new();
 
-    private static Dictionary<string, string> m_StringFacts = new();
+    private static readonly Dictionary<string, string> m_StringFacts = new();
 
     public static bool GetBoolFact(string key)
     {
-        if (m_Facts.TryGetValue(key, out int value) && value != 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return m_Facts.TryGetValue(key, out int value) && value != 0;
     }
 
     public static int GetIntFact(string key)
     {
-        if (m_Facts.TryGetValue(key, out int value))
-        {
-            return value;
-        }
-        else
-        {
-            return 0;
-        }
+        return m_Facts.TryGetValue(key, out int value) ? value : 0;
     }
 
     public static string GetStringFact(string key)
     {
-        if (m_StringFacts.TryGetValue(key, out string value))
-        {
-            return value;
-        }
-        else
-        {
-            return string.Empty;
-        }
+        return m_StringFacts.TryGetValue(key, out string value) ? value : string.Empty;
     }
 
     public static void SetBoolFact(string key, bool isFulfilled)
@@ -57,13 +36,17 @@ public static class FactDB
             case EOperation.Add:
                 m_Facts[key] = currentValue + value;
                 break;
+
             case EOperation.Subtract:
                 m_Facts[key] = (int)MathF.Max(currentValue - value, 0);
                 break;
-            default:
+
             case EOperation.Set:
                 m_Facts[key] = value;
                 break;
+
+            default:
+                throw new ArgumentException($"{operationType} is not supported type of FactDB SetIntFact");
         }
     }
 

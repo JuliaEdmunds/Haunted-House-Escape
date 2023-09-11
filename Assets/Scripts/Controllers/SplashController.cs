@@ -6,14 +6,9 @@ public class SplashController : MonoBehaviour
 {
     private const string INTRO_SCENE_NAME = "Intro";
 
-    void Start()
+    IEnumerator Start()
     {
-        StartCoroutine(LoadScene());
-    }
-
-    private IEnumerator LoadScene()
-    {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2.5f);
 
         SceneManager.LoadScene(INTRO_SCENE_NAME);
     }

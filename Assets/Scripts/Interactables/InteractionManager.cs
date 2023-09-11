@@ -14,7 +14,7 @@ public class InteractionManager : MonoBehaviour
 
     private static readonly Vector3 m_RayOriginPos = new(0.5f, 0.5f, 0f);
 
-    private static readonly Collider[] m_HitColliders = new Collider[0];
+    private static readonly Collider[] m_HitColliders = new Collider[5];
 
     private void Start()
     {
@@ -47,14 +47,15 @@ public class InteractionManager : MonoBehaviour
         }
         else
         {
-            Physics.OverlapSphereNonAlloc(m_FpsCam.transform.position, radius, m_HitColliders, m_RayLayerMask);
+            int numCollisions = Physics.OverlapSphereNonAlloc(m_FpsCam.transform.position, radius, m_HitColliders, m_RayLayerMask);
 
-            if (m_HitColliders.Length == 0)
+            if (numCollisions == 0)
             {
+                m_CurrentInteractable = null;
                 return;
             }
 
-            for (int i = 0; i < m_HitColliders.Length; i++)
+            for (int i = 0; i < numCollisions; i++)
             {
                 Collider currentColider = m_HitColliders[i];
                 m_CurrentInteractable = currentColider.GetComponent<IInteractable>();

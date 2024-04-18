@@ -7,8 +7,8 @@ public class GUIConfig
     private GUIStyle m_GuiStyle;
     private string m_Msg;
 
-    private const string OPEN_MESSAGE = "Press E/Fire1 to Open";
-    private const string CLOSE_MESSAGE = "Press E/Fire1 to Close";
+    private const string OPEN_MESSAGE = "Press E/Left mouse button to Open";
+    private const string CLOSE_MESSAGE = "Press E/Left mouse button to Close";
 
     public GUIConfig()
     {

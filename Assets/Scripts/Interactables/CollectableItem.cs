@@ -11,7 +11,7 @@ public class CollectableItem : AInteractableObject
     [SerializeField] private ECollectable m_ItemType;
     public ECollectable ItemType => m_ItemType;
 
-    private const string PICKUP_MESSAGE = "Press E/Fire1 to pick up";
+    private const string PICKUP_MESSAGE = "Press E/Left mouse button to Pick up";
 
     public override void Interact()
     {

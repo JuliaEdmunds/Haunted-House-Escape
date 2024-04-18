@@ -62,7 +62,7 @@ public class MoveableObject : AInteractableObject
 
         if (Locked)
         {
-            guiController.ShowInteractMsg("It's locked. You need to find a way to unlock it first.");
+            guiController.ShowInteractMsg("It's locked. You need to find a way to unlock it first." + Environment.NewLine + "Press E/Left mouse button to interact with the object");
         }
         else
         {

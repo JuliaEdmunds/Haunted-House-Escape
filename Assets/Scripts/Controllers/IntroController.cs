@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
@@ -15,6 +16,8 @@ public class IntroController : MonoBehaviour
     [SerializeField] private TMP_InputField m_InputField;
     [SerializeField] private Button m_StartButton;
 
+    private bool m_ForcePrint;
+
     private IEnumerator Start()
     {
         m_IntroText.text = string.Empty;
@@ -29,19 +32,34 @@ public class IntroController : MonoBehaviour
             yield return null;
         }
 
-        string currentLine = op.Result;
-        yield return PrintText(currentLine);
+        string textToPrint = op.Result;
+        yield return PrintText(textToPrint);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
 
         m_InputField.gameObject.SetActive(true);
         m_StartButton.gameObject.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
+        {
+            m_ForcePrint = true;
+        }
     }
 
     private IEnumerator PrintText(string line)
     {
         for (int i = 0; i <= line.Length; i++)
         {
+            if (m_ForcePrint)
+            {
+                // If force print is true, print the entire text immediately
+                m_IntroText.text = line;
+                yield break; // Exit the coroutine
+            }
+            
             string currentText = line.Substring(0, i);
             m_IntroText.text = currentText;
             yield return new WaitForSeconds(0.05f);

@@ -8,7 +8,6 @@ public class MoveableObject : AInteractableObject
     private int m_AnimHash;
 
     public static event Action<MoveableObject> OnObjectUnlocked;
-    public static event Action<MoveableObject> OnObjectAnimationComplete;
 
     [SerializeField] private Animator m_Animator;
     private bool m_IsOpen;
@@ -49,8 +48,6 @@ public class MoveableObject : AInteractableObject
 
         m_Animator.enabled = true;
         m_Animator.SetBool(m_AnimHash, !isOpen);
-
-        OnObjectAnimationComplete?.Invoke(this);
     }
 
     public override void LookAt(GUIConfig guiController)
